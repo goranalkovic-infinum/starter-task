@@ -22,7 +22,7 @@ export const CarouselOptions = ({ attributes, setAttributes }) => {
 				onChange={(value) => setAttributes({ isLoop: value })}
 			/>
 
-			<RangeControl
+			{/* <RangeControl
 				label={
 					<Fragment>
 						<Icon icon={icons.width} />
@@ -37,7 +37,7 @@ export const CarouselOptions = ({ attributes, setAttributes }) => {
 				max={options.itemsToShow.max}
 				step={options.itemsToShow.step}
 				resetFallbackValue={reset.showItems.default}
-			/>
+			/> */}
 
 		</PanelBody>
 	);
