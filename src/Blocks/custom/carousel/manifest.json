@@ -54,18 +54,14 @@
 		},
 		"isLoop": {
 			"type": "boolean",
-			"default": true
+			"default": false
 		},
 		"showItems": {
 			"type": "number",
-			"default": 1
+			"default": 2
 		}
 	},
 	"options": {
-		"itemsToShow": {
-			"min": 1,
-			"max": 2,
-			"step": 1
-		}
+		
 	}
 }

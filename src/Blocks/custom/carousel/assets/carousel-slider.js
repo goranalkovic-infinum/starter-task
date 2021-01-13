@@ -25,7 +25,7 @@ export class CarouselSlider {
 			keyboard: {
 				enabled: true,
 			},
-			grabCursor: true,
+			grabCursor: false,
 			breakpointsInverse: true,
 			threshold: 20,
 			navigation: {
@@ -34,8 +34,7 @@ export class CarouselSlider {
 			},
 			pagination: {
 				el: this.paginationElement,
-				type: 'bullets',
-				clickable: true,
+				type: 'fraction'
 			},
 			breakpoints: {
 				[breakpoints.tablet]: {

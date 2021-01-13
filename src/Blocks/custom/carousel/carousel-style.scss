@@ -12,9 +12,25 @@
 		align-items: center;
 		display: flex;
 		width: 100%;
+		justify-content: center;
 	}
 
 	.block-image__image {
 		margin: 0 auto;
+	}
+
+	.swiper-wrapper {
+		cursor: grab;
+	}
+
+	.js-block-carousel-prev-arrow, .js-block-carousel-next-arrow {
+		cursor: pointer;
+		height: 48px;
+		width: 48px;
+		background-color: #eee;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 }
