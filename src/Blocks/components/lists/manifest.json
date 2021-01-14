@@ -35,6 +35,18 @@
 		"listsUse": {
 			"type": "boolean",
 			"default": true
+		},
+		"listsShowBullets": {
+			"type": "boolean",
+			"default": true
+		},
+		"listsHorizontal": {
+			"type": "boolean",
+			"default": false
+		},
+		"listsSpecial": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"options": {
@@ -46,6 +58,10 @@
 			{
 				"label": "Small (18px)",
 				"value": "small"
+			},
+			{
+				"label": "Tiny (14px)",
+				"value": "tiny"
 			}
 		],
 		"aligns": [

@@ -14,6 +14,10 @@ $lists: (
 				font-size: 14px,
 				line-height: 1,
 			),
+			tiny: (
+				font-size: 12px,
+				font-weight: 600,
+			)
 		),
 		large: (
 			default: (
@@ -22,6 +26,10 @@ $lists: (
 			small: (
 				font-size: 18px,
 			),
+			tiny: (
+				font-size: 14px,
+				font-weight: 600,
+			)
 		),
 	),
 );
@@ -37,13 +45,39 @@ $lists: (
 
 	&__color {
 		@include modifiers-deep($lists, colors, color);
-	}
-
+	}	
+	
+	
 	&__size {
 		@include responsive-modifiers($lists, sizes);
 	}
 
 	&__align {
 		@include text-align-modifiers;
+	}
+
+	&__showBullets--0, &__showBullets--false {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	&__horizontal--1, &__horizontal--true {
+		display: flex;
+
+		li:not(:last-child) {
+			margin-right: 10px;
+		}
+	}	
+	
+	&__special--1 li, &__special--true li {
+		margin: 0;
+		border-radius: 22px;
+		background-color: $base-light-gray-color;
+		padding: 0 18px;
+		height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 }

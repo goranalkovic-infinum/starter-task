@@ -20,6 +20,9 @@ export const ListsOptions = (attributes) => {
 
 		listsColor = checkAttr('listsColor', attributes, manifest, componentName),
 		listsSize = checkAttr('listsSize', attributes, manifest, componentName),
+		listsShowBullets = checkAttr('listsShowBullets', attributes, manifest, componentName),
+		listsHorizontal = checkAttr('listsHorizontal', attributes, manifest, componentName),
+		listsSpecial = checkAttr('listsSpecial', attributes, manifest, componentName),
 
 		showListsColor = true,
 		showListsSize = true,
@@ -57,7 +60,8 @@ export const ListsOptions = (attributes) => {
 							value={listsColor}
 							onChange={(value) => setAttributes({ [`${componentName}Color`]: value })}
 						/>
-					}
+					}	
+		
 
 					{showListsSize &&
 						<SelectControl
@@ -67,6 +71,23 @@ export const ListsOptions = (attributes) => {
 							onChange={(value) => setAttributes({ [`${componentName}Size`]: value })}
 						/>
 					}
+
+					<hr />
+
+					<small>Advanced</small>
+
+					<ToggleControl
+						label={__('Show bullet points')}
+						checked={listsShowBullets}
+						onChange={(value) => setAttributes({ [`${componentName}ShowBullets`]: value })}
+					/>					
+					
+					<ToggleControl
+						label={__('Horizontal list')}
+						checked={listsHorizontal}
+						help={'Best used with "Show bullet points" disabled'}
+						onChange={(value) => setAttributes({ [`${componentName}Horizontal`]: value })}
+					/>		
 				</Fragment>
 			}
 
