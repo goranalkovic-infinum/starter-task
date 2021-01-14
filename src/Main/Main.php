@@ -81,7 +81,7 @@ class Main extends AbstractMain
 		$remoteResponse = \wp_remote_get($url);
 
 		if (is_array($remoteResponse)) {
-			$body = json_decode($remoteResponse['body']);
+			$body = json_decode($remoteResponse['body'], true);
 		}
 
 		if (!isset($body)) {
