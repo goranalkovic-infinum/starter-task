@@ -29,9 +29,9 @@ $carouselClass = Components::classnames([
 		<?php echo wp_kses_post($innerBlockContent); ?>
 	</div>
 
-	<div style="display: flex; gap:10px; padding: 10px;">
-		<div class="js-block-carousel-prev-arrow">&lt;</div>
-		<div class="js-block-carousel-next-arrow">&gt;</div>
-		<div class="js-block-carousel-pagination">pagination</div>
+	<div class="<?php echo esc_attr('control-container'); ?>">
+		<div class="<?php echo esc_attr('js-block-carousel-prev-arrow'); ?>">&lt;</div>
+		<div class="<?php echo esc_attr('js-block-carousel-next-arrow'); ?>">&gt;</div>
+		<div class="<?php echo esc_attr('js-block-carousel-pagination'); ?>">pagination</div>
 	</div>
 </div>
