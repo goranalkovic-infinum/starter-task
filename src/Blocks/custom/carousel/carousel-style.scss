@@ -23,6 +23,13 @@
 		cursor: grab;
 	}
 
+	.control-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 25px 12px;
+	}
+
 	.js-block-carousel-prev-arrow, .js-block-carousel-next-arrow {
 		cursor: pointer;
 		height: 48px;
@@ -32,5 +39,16 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	.js-block-carousel-next-arrow {
+		margin: 0 23px;
+	}
+
+	.js-block-carousel-pagination {
+		@extend %paragraph-reset;
+		font-size: 18px;
+		font-weight: 700;
+		color: map-get-deep($paragraph, colors, black);
 	}
 }
