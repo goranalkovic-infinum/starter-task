@@ -21,6 +21,7 @@ export const ParagraphEditor = (attributes) => {
 		paragraphColor = checkAttr('paragraphColor', attributes, manifest, componentName),
 		paragraphSize = checkAttr('paragraphSize', attributes, manifest, componentName),
 		paragraphAlign = checkAttr('paragraphAlign', attributes, manifest, componentName),
+		paragraphFontStyle = checkAttr('paragraphFontStyle', attributes, manifest, componentName),
 	} = attributes;
 
 	const paragraphClass = classnames([
@@ -28,6 +29,7 @@ export const ParagraphEditor = (attributes) => {
 		selector(paragraphColor, componentClass, 'color', paragraphColor),
 		selector(paragraphSize, componentClass, 'size', paragraphSize),
 		selector(paragraphAlign, componentClass, 'align', paragraphAlign),
+		selector(paragraphFontStyle, componentClass, 'fontStyle', paragraphFontStyle),
 		selector(blockClass, blockClass, selectorClass),
 	]);
 
