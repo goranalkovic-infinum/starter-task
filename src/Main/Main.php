@@ -63,10 +63,10 @@ class Main extends AbstractMain
 		$options = [
 			[
 				'methods' => \WP_REST_Server::READABLE,
-				'callback' => 'getLatestNews',
+				'callback' => [$this, 'getLatestNews'],
 			],
 		];
-		
+
 		\register_rest_route('spacenews-api', '/news', $options);
 	}
 
@@ -77,9 +77,17 @@ class Main extends AbstractMain
 	 */
 	public function getLatestNews()
 	{
-		$posts = [];
+		$url = 'https://www.spaceflightnewsapi.net/api/v2/articles';
+		$remoteResponse = \wp_remote_get($url);
 
-		$response = new \WP_REST_Response($posts);
+		if (is_array($remoteResponse)) {
+			$body = json_decode($remoteResponse['body']);
+		}
+
+		if (!isset($body)) {
+			return new \WP_Error('no_news', 'there are no news available', ['status' => 404]);
+		}
+		$response = new \WP_REST_Response($body);
 		$response->set_status(200);
 
 		return $response;
