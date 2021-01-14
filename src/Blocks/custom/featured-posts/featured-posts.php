@@ -23,61 +23,71 @@ global $post;
 
 <div class="<?php echo esc_attr($blockClass); ?>" data-items-per-line=<?php echo \esc_attr($itemsPerLine); ?>>
 	<?php
-		$postType = $query['postType'];
-		$posts = $query['posts'];
+	$postType = $query['postType'];
+	$posts = $query['posts'];
 
-		$args = [
-			'post_type' => $postType,
-			'posts_per_page' => $showItems,
-		];
+	$args = [
+		'post_type' => $postType,
+		'posts_per_page' => $showItems,
+	];
 
-		if ($excludeCurrentPost) {
-			$args['post__not_in'] = $posts->ID;
-		}
+	if ($excludeCurrentPost) {
+		$args['post__not_in'] = $posts->ID;
+	}
 
-		if ($posts) {
-			$args['post__in'] = $posts;
-		}
+	if ($posts) {
+		$args['post__in'] = $posts;
+	}
 
-		$theQuery = new \WP_Query($args);
+	$theQuery = new \WP_Query($args);
 
-		if ($theQuery->have_posts()) {
-			while ($theQuery->have_posts()) {
-				$theQuery->the_post();
+	if ($theQuery->have_posts()) {
+		while ($theQuery->have_posts()) {
+			$theQuery->the_post();
 
-				$postId = get_the_ID();
+			$postId = get_the_ID();
 
-				$image = \get_the_post_thumbnail_url($postId, 'large');
+			$tags = \get_the_tags($postId);
+			$tagNames = [];
 
-				$cardProps = [
-					'imageUrl' => $image,
-					'imageUse' => $image ?? true,
-					'introUse' => false,
-					'headingContent' => \get_the_title($postId),
-					'paragraphContent' => \get_the_excerpt($postId),
-					'buttonContent' => __('Show More', 'Unicorns'),
-					'buttonUrl' => \get_the_permalink($postId),
-				];
-
-				if ($serverSideRender) {
-					$cardProps['headingTag'] = 'div';
-					$cardProps['paragraphTag'] = 'div';
-				}
-				?>
-
-				<div class="<?php echo esc_attr("{$blockClass}__item"); ?>">
-					<?php
-					echo wp_kses_post(
-						Components::render(
-							'card',
-							$cardProps
-						)
-					);
-					?>
-				</div>
-				<?php
+			foreach ($tags as $tag) {
+				$tagNames[] = '"' . $tag->name . '"';
 			}
-			\wp_reset_postdata();
+
+			$processedTags = '{' . implode(",", $tagNames) . '}';
+
+			$image = \get_the_post_thumbnail_url($postId, 'large');
+
+			$cardProps = [
+				'imageUrl' => $image,
+				'imageUse' => $image ?? true,
+				'introUse' => true,
+				'introContent' => \get_the_date('j.m.Y @ G:i', $postId),
+				'headingContent' => \get_the_title($postId),
+				'paragraphContent' => \get_the_excerpt($postId),
+				'buttonUse' => false,
+			];
+
+			if ($serverSideRender) {
+				$cardProps['headingTag'] = 'div';
+				$cardProps['paragraphTag'] = 'div';
+			}
+	?>
+
+			<div class="<?php echo esc_attr("{$blockClass}__item"); ?>">
+				<?php
+				echo wp_kses_post(
+					Components::render(
+						'card',
+						$cardProps
+					)
+				);
+				echo $processedTags;
+				?>
+			</div>
+	<?php
 		}
-		?>
+		\wp_reset_postdata();
+	}
+	?>
 </div>
