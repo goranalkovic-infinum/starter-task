@@ -51,26 +51,25 @@ global $post;
 			$tagNames = [];
 
 			foreach ($tags as $tag) {
-				$tagNames[] = '"' . $tag->name . '"';
+				$tagNames[] = '<li>' . $tag->name . '</li>';
 			}
 
-			$processedTags = '{' . implode(",", $tagNames) . '}';
+			$processedTags = implode("", $tagNames);
 
 			$image = \get_the_post_thumbnail_url($postId, 'large');
 
-			$cardProps = [
+			$postCardProps = [
 				'imageUrl' => $image,
 				'imageUse' => $image ?? true,
-				'introUse' => true,
-				'introContent' => \get_the_date('j.m.Y @ G:i', $postId),
+				'dateContent' => \get_the_date('j.m.Y @ G:i', $postId),
 				'headingContent' => \get_the_title($postId),
-				'paragraphContent' => \get_the_excerpt($postId),
-				'buttonUse' => false,
+				'excerptContent' => \get_the_excerpt($postId),
+				'tagsContent' => $processedTags
 			];
 
 			if ($serverSideRender) {
-				$cardProps['headingTag'] = 'div';
-				$cardProps['paragraphTag'] = 'div';
+				$postCardProps['headingTag'] = 'div';
+				$postCardProps['paragraphTag'] = 'div';
 			}
 	?>
 
@@ -78,11 +77,10 @@ global $post;
 				<?php
 				echo wp_kses_post(
 					Components::render(
-						'card',
-						$cardProps
+						'post-card',
+						$postCardProps
 					)
 				);
-				echo $processedTags;
 				?>
 			</div>
 	<?php
