@@ -37,6 +37,7 @@ class Menu extends AbstractMenu
 	{
 		return [
 			'header_main_nav' => \esc_html__('Main Menu', 'Unicorns'),
+			'footer_main_nav' => \esc_html__('Footer Menu', 'Unicorns'),
 		];
 	}
 }
