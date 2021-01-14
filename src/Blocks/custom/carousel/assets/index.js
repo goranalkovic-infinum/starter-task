@@ -14,7 +14,8 @@ domReady(() => {
 					blockClass: 'block-carousel',
 					nextElement: `${selector}-next-arrow`,
 					prevElement: `${selector}-prev-arrow`,
-					paginationElement: document.querySelector(`${selector}-pagination`),
+					paginationElement: `${selector}-pagination`,
+					swipeHandler: `${selector} .swiper-wrapper`,
 					eventName,
 				});
 				carouselSlider.init();
