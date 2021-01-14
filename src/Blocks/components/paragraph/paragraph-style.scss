@@ -1,5 +1,9 @@
 $paragraph: (
-	colors: global-settings(colors),
+	colors: (
+		primary: global-settings(colors, primary),
+		black: global-settings(colors, black),
+		gray: $base-gray-color
+	),
 	link-color: map-get-strict($link, colors),
 	sizes: (
 		mobile: (
@@ -11,6 +15,14 @@ $paragraph: (
 				font-size: 14px,
 				line-height: 1,
 			),
+			excerptional: (
+				font-size: 13px,
+				line-height: 1.5,
+			),
+			datey: (
+				font-size: 12px,
+				line-height: 1.5,
+			)
 		),
 		large: (
 			default: (
@@ -19,6 +31,14 @@ $paragraph: (
 			small: (
 				font-size: 18px,
 			),
+			excerptional: (
+				font-size: 16px,
+				line-height: 1.6875,
+			),
+			datey: (
+				font-size: 14px,
+				line-height: 1.3578,
+			)
 		),
 	),
 );
@@ -46,5 +66,9 @@ $paragraph: (
 
 	&__align {
 		@include text-align-modifiers;
+	}
+
+	&__fontStyle--italic {
+		font-style: italic;
 	}
 }

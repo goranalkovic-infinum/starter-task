@@ -30,6 +30,10 @@
 		"paragraphUse": {
 			"type": "boolean",
 			"default": true
+		},
+		"paragraphFontStyle": {
+			"type": "boolean",
+			"default": "default"
 		}
 	},
 	"options": {
@@ -41,6 +45,14 @@
 			{
 				"label": "Small (18px)",
 				"value": "small"
+			},
+			{
+				"label": "Excerptional (16px)",
+				"value": "excerptional"
+			},
+			{
+				"label": "Datey (14px)",
+				"value": "datey"
 			}
 		],
 		"aligns": [
@@ -50,7 +62,12 @@
 		],
 		"colors": [
 			"primary",
-			"black"
+			"black",
+			"gray"
+		],
+		"fontStyles": [
+			"default",
+			"italic"
 		]
 	}
 }
