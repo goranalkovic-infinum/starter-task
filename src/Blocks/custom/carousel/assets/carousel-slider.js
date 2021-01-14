@@ -1,5 +1,7 @@
-import Swiper from 'swiper';
+import Swiper, { Navigation, Pagination } from 'swiper';
 import globalSettings from './../../../manifest.json';
+
+Swiper.use([Navigation, Pagination]);
 
 export class CarouselSlider {
 	constructor(options) {
