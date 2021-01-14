@@ -7,6 +7,7 @@
  */
 
 use UnicornsVendor\EightshiftLibs\Helpers\Components;
+use Unicorns\Manifest\Manifest;
 
 $manifest = Components::getManifest(__DIR__);
 
@@ -30,8 +31,12 @@ $carouselClass = Components::classnames([
 	</div>
 
 	<div class="<?php echo esc_attr('control-container'); ?>">
-		<div class="<?php echo esc_attr('js-block-carousel-prev-arrow'); ?>">&lt;</div>
-		<div class="<?php echo esc_attr('js-block-carousel-next-arrow'); ?>">&gt;</div>
-		<div class="<?php echo esc_attr('js-block-carousel-pagination'); ?>">pagination</div>
+		<div class="<?php echo esc_attr('js-block-carousel-prev-arrow'); ?>">
+			<img src="<?php echo \apply_filters(Manifest::MANIFEST_ITEM, 'arrow-left.svg') ?>" alt="Previous">
+		</div>
+		<div class="<?php echo esc_attr('js-block-carousel-next-arrow'); ?>">
+			<img src="<?php echo \apply_filters(Manifest::MANIFEST_ITEM, 'arrow-right.svg') ?>" alt="Next">
+		</div>
+		<div class="<?php echo esc_attr('js-block-carousel-pagination'); ?>"></div>
 	</div>
 </div>

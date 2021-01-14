@@ -36,7 +36,10 @@ export class CarouselSlider {
 			},
 			pagination: {
 				el: this.paginationElement,
-				type: 'fraction'
+				type: 'fraction',
+				renderFraction: (currentClass, totalClass) => {
+					return `<span class="${currentClass}"></span><span>/</span><span class="${totalClass}"></span>`;
+				},
 			},
 			breakpoints: {
 				[breakpoints.tablet]: {
