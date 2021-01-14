@@ -9,11 +9,6 @@ domReady(() => {
 
 		import('./carousel-slider').then(({ CarouselSlider }) => {
 			[...elements].forEach((element) => {
-				console.log(element);
-				console.log(`${selector}-next-arrow`);
-				console.log(`${selector}-prev-arrow`);
-				console.log(document.querySelector(`${selector}-prev-arrow`));
-				console.log(document.querySelector(`${selector}-next-arrow`));
 				const carouselSlider = new CarouselSlider({
 					element,
 					blockClass: 'block-carousel',
@@ -22,7 +17,6 @@ domReady(() => {
 					paginationElement: document.querySelector(`${selector}-pagination`),
 					eventName,
 				});
-				console.log(carouselSlider);
 				carouselSlider.init();
 			});
 		});
