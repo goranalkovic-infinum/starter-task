@@ -1,0 +1,19 @@
+{
+	"componentName": "post-card",
+	"title": "Post card",
+	"componentClass": "post-card",
+	"example": {
+		"attributes": {
+			"introContent": "This is intro",
+			"introSize": "small",
+			"introColor": "light"
+		}
+	},
+	"components": {
+		"image": "image",
+		"date": "paragraph",
+		"heading": "heading",
+		"excerpt": "paragraph",
+		"tags": "lists"
+	}
+}
