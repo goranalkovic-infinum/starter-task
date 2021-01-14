@@ -22,70 +22,49 @@ global $post;
 ?>
 
 <div class="<?php echo esc_attr($blockClass); ?>" data-items-per-line=<?php echo \esc_attr($itemsPerLine); ?>>
-	<?php
-	$postType = $query['postType'];
-	$posts = $query['posts'];
+    <?php
+    $arequest  = new \WP_REST_Request('GET', '/spacenews-api/news');
+    $aresponse = \rest_do_request($arequest);
 
-	$args = [
-		'post_type' => $postType,
-		'posts_per_page' => $showItems,
-	];
+    if ($aresponse->is_error()) {
+        echo "NOPE";
+        return;
+    } else {
+        $adata     = \rest_get_server()->response_to_data($aresponse, true);
 
-	if ($excludeCurrentPost) {
-		$args['post__not_in'] = $posts->ID;
-	}
+        foreach ($adata as $apost) {
 
-	if ($posts) {
-		$args['post__in'] = $posts;
-	}
+            $image = $apost['imageUrl'];
 
-	$theQuery = new \WP_Query($args);
 
-	if ($theQuery->have_posts()) {
-		while ($theQuery->have_posts()) {
-			$theQuery->the_post();
+            $postCardProps = [
+                'imageUrl' => $image,
+                'imageUse' => $image ?? true,
+                'dateContent' => \get_the_date('j.m.Y @ G:i', $postId),
+                'headingContent' => wp_kses_post($apost['title']),
+                'excerptContent' => wp_kses_post($apost['summary']),
+                'tagsContent' => '<li>Prvo</li><li>Drugo</li><li>Trece</li>'
+            ];
 
-			$postId = get_the_ID();
+            if ($serverSideRender) {
+                $postCardProps['headingTag'] = 'div';
+                $postCardProps['paragraphTag'] = 'div';
+            }
+    ?>
 
-			$tags = \get_the_tags($postId);
-			$tagNames = [];
-
-			foreach ($tags as $tag) {
-				$tagNames[] = '<li>' . $tag->name . '</li>';
-			}
-
-			$processedTags = implode("", $tagNames);
-
-			$image = \get_the_post_thumbnail_url($postId, 'large');
-
-			$postCardProps = [
-				'imageUrl' => $image,
-				'imageUse' => $image ?? true,
-				'dateContent' => \get_the_date('j.m.Y @ G:i', $postId),
-				'headingContent' => \get_the_title($postId),
-				'excerptContent' => \get_the_excerpt($postId),
-				'tagsContent' => $processedTags
-			];
-
-			if ($serverSideRender) {
-				$postCardProps['headingTag'] = 'div';
-				$postCardProps['paragraphTag'] = 'div';
-			}
-	?>
-
-			<div class="<?php echo esc_attr("{$blockClass}__item"); ?>">
-				<?php
-				echo wp_kses_post(
-					Components::render(
-						'post-card',
-						$postCardProps
-					)
-				);
-				?>
-			</div>
-	<?php
-		}
-		\wp_reset_postdata();
-	}
-	?>
+            <div class="<?php echo esc_attr("{$blockClass}__item"); ?>">
+                <?php
+                echo wp_kses_post(
+                    Components::render(
+                        'post-card',
+                        $postCardProps
+                    )
+                );
+                ?>
+            </div>
+    <?php
+        }
+        \wp_reset_postdata();
+    }
+    ?>
 </div>
