@@ -40,10 +40,48 @@ class Main extends AbstractMain
 	{
 		\add_action('after_setup_theme', [$this, 'registerServices']);
 		\add_action('after_setup_theme', [$this, 'enableFeaturedImages']);
+		\add_action('rest_api_init', [$this, 'addPublicRestApi']);
 	}
 
+	/**
+	 * This method enables 'Featured image' functionality'.
+	 * 
+	 * @return void
+	 */
 	public function enableFeaturedImages(): void
 	{
-		\add_theme_support( 'post-thumbnails' );
+		\add_theme_support('post-thumbnails');
+	}
+
+	/**
+	 * This method adds a new API route.
+	 * 
+	 * @return void
+	 */
+	public function addPublicRestApi(): void
+	{
+		$options = [
+			[
+				'methods' => \WP_REST_Server::READABLE,
+				'callback' => 'getLatestNews',
+			],
+		];
+		
+		\register_rest_route('spacenews-api', '/news', $options);
+	}
+
+	/**
+	 * This method fetches the latest news from a public API.
+	 * 
+	 * @return WP_REST_Response
+	 */
+	public function getLatestNews()
+	{
+		$posts = [];
+
+		$response = new \WP_REST_Response($posts);
+		$response->set_status(200);
+
+		return $response;
 	}
 }
