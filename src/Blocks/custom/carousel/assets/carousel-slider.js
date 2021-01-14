@@ -1,5 +1,4 @@
 import Swiper, { Navigation, Pagination } from 'swiper';
-import globalSettings from './../../../manifest.json';
 
 Swiper.use([Navigation, Pagination]);
 
@@ -11,22 +10,22 @@ export class CarouselSlider {
 		this.prevElement = options.prevElement;
 		this.paginationElement = options.paginationElement;
 		this.eventName = options.eventName;
+		this.swipeHandler = options.eventName;
 	}
 
 	init() {
 		const item = this.element;
 
-		const showItems = item.getAttribute('data-show-items');
-		const { breakpoints } = globalSettings.globalVariables;
-
 		new Swiper(item, {
 			loop: item.getAttribute('data-swiper-loop'),
 			slideClass: `${this.blockClass}__item`,
-			slidesPerView: 1,
-			spaceBetween: 1,
+			slidesPerView: 'auto',
+			spaceBetween: 30,
 			keyboard: {
 				enabled: true,
 			},
+			swipeHandler: this.swipeHandler,
+			centeredSlides: true,
 			grabCursor: false,
 			breakpointsInverse: true,
 			threshold: 20,
@@ -39,12 +38,6 @@ export class CarouselSlider {
 				type: 'fraction',
 				renderFraction: (currentClass, totalClass) => {
 					return `<span class="${currentClass}"></span><span>/</span><span class="${totalClass}"></span>`;
-				},
-			},
-			breakpoints: {
-				[breakpoints.tablet]: {
-					slidesPerView: showItems,
-					spaceBetween: showItems === '2' ? 3 : 0,
 				},
 			},
 			on: {
