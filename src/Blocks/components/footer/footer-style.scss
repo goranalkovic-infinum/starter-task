@@ -43,6 +43,11 @@ $footer: (
 		&--right {
 			text-align: right;
 			justify-content: flex-end;
+
+			.copyright {
+				color: $base-gray-color;
+				font-weight: 600;
+			}
 		}
 	}
 
@@ -56,5 +61,17 @@ $footer: (
 		img {
 			height: 39px;
 		}
+	}
+
+	&__menu {
+		a {
+			color: global-settings(colors, primary);
+			font-weight: 600;
+		}
+
+		.menu-horizontal__item--current-menu-item a {
+			color: $base-gray-color;
+		}
+
 	}
 }
