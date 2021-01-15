@@ -66,6 +66,13 @@ class Main extends AbstractMain
 		];
 
 		\register_rest_route('spacenews-api', '/news/latest', $options);
+
+		$options2 = [
+			'methods' => \WP_REST_Server::READABLE,
+			'callback' => [$this, 'getNews'],
+		];
+
+		\register_rest_route('spacenews-api', '/news', $options2);
 	}
 
 	/**
@@ -76,6 +83,43 @@ class Main extends AbstractMain
 	public function getLatestNews()
 	{
 		$url = 'https://www.spaceflightnewsapi.net/api/v2/articles?_limit=4';
+		$remoteResponse = \wp_remote_get($url);
+
+		if (is_array($remoteResponse)) {
+			$body = json_decode($remoteResponse['body'], true);
+		}
+
+		if (!isset($body)) {
+			return new \WP_Error('no_news', 'there are no news available', ['status' => 404]);
+		}
+		$response = new \WP_REST_Response($body);
+		$response->set_status(200);
+
+		return $response;
+	}
+
+	/**
+	 * This method fetches news from a public API.
+	 * 
+	 * @return WP_REST_Response
+	 */
+	public function getNews($data)
+	{
+		$params = $data->get_params();
+
+		foreach ($params as $name => $value) {
+			if ($name != '_limit' && $name != '_start') {
+				unset($params[$name]);
+			}
+		}
+
+		$parsedParams = "";
+
+		if (sizeof($params) > 0) {
+			$parsedParams = '?' . http_build_query($params);
+		}
+
+		$url = "https://www.spaceflightnewsapi.net/api/v2/articles$parsedParams";
 		$remoteResponse = \wp_remote_get($url);
 
 		if (is_array($remoteResponse)) {
