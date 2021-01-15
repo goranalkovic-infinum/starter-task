@@ -17,18 +17,19 @@ echo wp_kses_post(
 	Components::render(
 		'layout-three-columns',
 		[
-			'layoutLeft' => Components::render(
+			'layoutLeft' => [
+				Components::render(
+					'menu',
+					[
+						'variation' => 'horizontal'
+					]
+				),
+			],
+			'layoutRight' => Components::render(
 				'copyright',
 				[
-					'copyrightBy' => esc_html__('Eightshift', 'unicorns'),
 					'copyrightYear' => gmdate('Y'),
-					'copyrightContent' => esc_html__('Made with 🧡  by Eightshift team', 'unicorns'),
-				]
-			),
-			'layoutRight' => Components::render(
-				'menu',
-				[
-					'variation' => 'horizontal'
+					'copyrightContent' => esc_html__('All love and happiness'),
 				]
 			),
 		]
@@ -38,4 +39,5 @@ echo wp_kses_post(
 wp_footer();
 ?>
 </body>
+
 </html>
