@@ -23,26 +23,30 @@ global $post;
 
 <div class="<?php echo esc_attr($blockClass); ?>" data-items-per-line=<?php echo \esc_attr($itemsPerLine); ?>>
     <?php
-    $arequest  = new \WP_REST_Request('GET', '/spacenews-api/news');
-    $aresponse = \rest_do_request($arequest);
+    $request  = new \WP_REST_Request('GET', '/spacenews-api/news');
+    $response = \rest_do_request($request);
 
-    if ($aresponse->is_error()) {
-        echo "NOPE";
-        return;
+    if ($response->is_error()) {
+        echo "Error loading news";
     } else {
-        $adata     = \rest_get_server()->response_to_data($aresponse, true);
+        $data     = \rest_get_server()->response_to_data($response, true);
 
-        foreach ($adata as $apost) {
+        foreach ($data as $post) {
 
-            $image = $apost['imageUrl'];
+            $postImage = $post['imageUrl'];
 
+            $postDate = date_create($post['publishedAt']);
+
+        $postTitle = $post['title'];
+
+        $postExcerpt = $post['summary'];
 
             $postCardProps = [
-                'imageUrl' => $image,
-                'imageUse' => $image ?? true,
-                'dateContent' => \get_the_date('j.m.Y @ G:i', $postId),
-                'headingContent' => wp_kses_post($apost['title']),
-                'excerptContent' => wp_kses_post($apost['summary']),
+                'imageUrl' => wp_kses_post($postImage),
+                'imageUse' => $postImage ?? true,
+                'dateContent' => date_format($postDate, 'j.m.Y @ G:i'),
+                'headingContent' => wp_kses_post($postTitle),
+                'excerptContent' => wp_kses_post($postExcerpt),
                 'tagsContent' => '<li>Prvo</li><li>Drugo</li><li>Trece</li>'
             ];
 
@@ -64,7 +68,6 @@ global $post;
             </div>
     <?php
         }
-        \wp_reset_postdata();
     }
     ?>
 </div>
