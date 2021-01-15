@@ -18,6 +18,7 @@ echo wp_kses_post(
 	Components::render(
 		'layout-three-columns',
 		[
+			'selectorClass' => 'footer',
 			'layoutLeft' => [
 				Components::render(
 					'logo',
@@ -32,6 +33,7 @@ echo wp_kses_post(
 				Components::render(
 					'menu',
 					[
+						'parentClass' => 'footer',
 						'menu' => 'footer_main_nav',
 						'variation' => 'horizontal'
 					]
