@@ -75,7 +75,7 @@ global $post;
 
 <?php
 $loadMoreProps = [
-    'loadMoreUrl' => '/wp-json/spacenews-api/news',
+    'loadMoreUrl' => '/wp-json/spacenews-api/news?html=1',
     'loadMoreButtonLabel' => 'Load More',
     'loadMoreContainer' => esc_attr($blockClass),
 ];
