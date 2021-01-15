@@ -7,6 +7,7 @@
  */
 
 use UnicornsVendor\EightshiftLibs\Helpers\Components;
+use Unicorns\Manifest\Manifest;
 
 ?>
 
@@ -18,6 +19,16 @@ echo wp_kses_post(
 		'layout-three-columns',
 		[
 			'layoutLeft' => [
+				Components::render(
+					'logo',
+					[
+						'parentClass' => 'footer',
+						'logoSrc' => \apply_filters(Manifest::MANIFEST_ITEM, 'logo.svg'),
+						'logoAlt' => \get_bloginfo('name'),
+						'logoTitle' => \get_bloginfo('name'),
+						'logoHref' => \get_bloginfo('url'),
+					]
+				),
 				Components::render(
 					'menu',
 					[
