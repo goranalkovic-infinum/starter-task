@@ -32,6 +32,7 @@ echo wp_kses_post(
 				Components::render(
 					'menu',
 					[
+						'menu' => 'footer_main_nav',
 						'variation' => 'horizontal'
 					]
 				),
