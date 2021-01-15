@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Unicorns\Main;
 
 use UnicornsVendor\EightshiftLibs\Main\AbstractMain;
+use UnicornsVendor\EightshiftLibs\Helpers\Components;
 
 /**
  * The main start class.
@@ -82,7 +83,7 @@ class Main extends AbstractMain
 	 */
 	public function getLatestNews()
 	{
-		$url = 'https://www.spaceflightnewsapi.net/api/v2/articles?_limit=4';
+		$url = 'https://test.spaceflightnewsapi.net/api/v2/articles?_limit=4';
 		$remoteResponse = \wp_remote_get($url);
 
 		if (is_array($remoteResponse)) {
@@ -107,9 +108,14 @@ class Main extends AbstractMain
 	{
 		$params = $data->get_params();
 
+		$returnHtml = false;
+
 		foreach ($params as $name => $value) {
 			if ($name != '_limit' && $name != '_start') {
 				unset($params[$name]);
+			}
+			if ($name == 'html') {
+				$returnHtml = true;
 			}
 		}
 
@@ -119,7 +125,7 @@ class Main extends AbstractMain
 			$parsedParams = '?' . http_build_query($params);
 		}
 
-		$url = "https://www.spaceflightnewsapi.net/api/v2/articles$parsedParams";
+		$url = "https://test.spaceflightnewsapi.net/api/v2/articles$parsedParams";
 		$remoteResponse = \wp_remote_get($url);
 
 		if (is_array($remoteResponse)) {
@@ -131,6 +137,35 @@ class Main extends AbstractMain
 		}
 		$response = new \WP_REST_Response($body);
 		$response->set_status(200);
+
+		if ($returnHtml) {
+			$outputHtml = '';
+
+			foreach ($body as $post) {
+				$postImage = $post['imageUrl'];
+
+				$postDate = date_create($post['publishedAt']);
+
+				$postTitle = $post['title'];
+
+				$postExcerpt = $post['summary'];
+
+				$postCardProps = [
+					'imageUrl' => wp_kses_post($postImage),
+					'imageUse' => $postImage ?? true,
+					'dateContent' => date_format($postDate, 'j.m.Y @ G:i'),
+					'headingContent' => wp_kses_post($postTitle),
+					'excerptContent' => wp_kses_post($postExcerpt),
+					'tagsContent' => '<li>Prvo</li><li>Drugo</li><li>Trece</li>'
+				];
+
+				$outputHtml .= '<div class="block-featured-posts__item">';
+				$outputHtml .= Components::render('post-card', $postCardProps);
+				$outputHtml .= '</div>';
+			}
+
+			return $outputHtml;
+		}
 
 		return $response;
 	}
