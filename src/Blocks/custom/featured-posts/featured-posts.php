@@ -23,7 +23,7 @@ global $post;
 
 <div class="<?php echo esc_attr($blockClass); ?>" data-items-per-line=<?php echo \esc_attr($itemsPerLine); ?>>
     <?php
-    $request  = new \WP_REST_Request('GET', '/spacenews-api/news');
+    $request  = new \WP_REST_Request('GET', '/spacenews-api/news/latest');
     $response = \rest_do_request($request);
 
     if ($response->is_error()) {
