@@ -25,6 +25,7 @@ $menu-horizontal: (
 		justify-content: center;
 		padding: map-get-strict($menu-horizontal, link-padding);
 		transition: 0.3s color ease-in-out;
+		font-weight: 600;
 
 		@include link($menu-horizontal, link-modifiers);
 	}
