@@ -1,5 +1,5 @@
 $footer: (
-	height: 50px,
+	height: auto,
 	site-padding: global-settings(gutters, default),
 	site-container: global-settings(containers, default),
 	colors: (
@@ -9,7 +9,7 @@ $footer: (
 
 .footer {
 	$this: &;
-	padding: 0 map-get-strict($footer, site-padding);
+	padding: 40px map-get-strict($footer, site-padding);
 	top: 0;
 	background: map-get-deep($footer, colors, background);
 	height: map-get-strict($footer, height);
@@ -43,6 +43,18 @@ $footer: (
 		&--right {
 			text-align: right;
 			justify-content: flex-end;
+		}
+	}
+
+	&__logo {
+		margin-right: 15px;
+
+		.logo {
+			width: auto;
+		}
+
+		img {
+			height: 39px;
 		}
 	}
 }
