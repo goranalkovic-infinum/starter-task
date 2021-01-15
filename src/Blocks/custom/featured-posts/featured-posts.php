@@ -37,9 +37,9 @@ global $post;
 
             $postDate = date_create($post['publishedAt']);
 
-        $postTitle = $post['title'];
+            $postTitle = $post['title'];
 
-        $postExcerpt = $post['summary'];
+            $postExcerpt = $post['summary'];
 
             $postCardProps = [
                 'imageUrl' => wp_kses_post($postImage),
@@ -69,5 +69,19 @@ global $post;
     <?php
         }
     }
+
+    $loadMoreProps = [
+        'buttonId' => 'loadMore',
+        'buttonAlign' => 'center',
+        'buttonContent' => 'Load More',
+        'parentClass' => 'block-featured-posts'
+    ];
+    
+    echo wp_kses_post(
+        Components::render(
+            'button',
+            $loadMoreProps
+        )
+    );
     ?>
 </div>
