@@ -31,5 +31,5 @@ $copyrightClass = Components::classnames([
 
 ?>
 <div class="<?php echo \esc_attr($copyrightClass); ?>">
-	<?php echo \esc_html("&copy; {$copyrightBy} {$copyrightYear} - {$copyrightContent}"); ?>
+	<?php echo \esc_html("{$copyrightYear}. {$copyrightContent}"); ?>
 </div>
