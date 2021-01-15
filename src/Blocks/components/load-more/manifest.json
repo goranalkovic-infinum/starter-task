@@ -1,0 +1,23 @@
+{
+	"componentName": "load-more",
+	"title": "Load more",
+	"componentClass": "load-more",
+	"example": {
+		"attributes": {
+			"loadMoreButtonLabel": "Load More",
+			"loadMoreUrl": "http://unicorns.test/wp-json/spacenews-api/news"
+		}
+	},
+	"attributes": {
+		"loadMoreButtonLabel": {
+			"type": "string",
+			"default": "Load More"
+		},
+		"loadMoreUrl": {
+			"type": "string"
+		},
+		"loadMoreContainer": {
+			"type": "string"
+		}
+	}
+}
