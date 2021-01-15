@@ -1,6 +1,8 @@
 .post-card {
 	&__image {
 		margin-bottom: 20px;
+		min-height: 217px;
+		object-fit: cover;
 	}
 
 	&__date {
@@ -8,7 +10,7 @@
 	}
 
 	&__heading {
-		margin-bottom: 10rpx;
+		margin-bottom: 10px;
 	}
 
 	&__excerpt {
