@@ -61,23 +61,21 @@ class Main extends AbstractMain
 	public function addPublicRestApi(): void
 	{
 		$options = [
-			[
-				'methods' => \WP_REST_Server::READABLE,
-				'callback' => [$this, 'getLatestNews'],
-			],
+			'methods' => \WP_REST_Server::READABLE,
+			'callback' => [$this, 'getLatestNews'],
 		];
 
-		\register_rest_route('spacenews-api', '/news', $options);
+		\register_rest_route('spacenews-api', '/news/latest', $options);
 	}
 
 	/**
-	 * This method fetches the latest news from a public API.
+	 * This method fetches the latest 4 news from a public API.
 	 * 
 	 * @return WP_REST_Response
 	 */
 	public function getLatestNews()
 	{
-		$url = 'https://www.spaceflightnewsapi.net/api/v2/articles';
+		$url = 'https://www.spaceflightnewsapi.net/api/v2/articles?_limit=4';
 		$remoteResponse = \wp_remote_get($url);
 
 		if (is_array($remoteResponse)) {
