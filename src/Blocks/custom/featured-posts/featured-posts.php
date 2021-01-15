@@ -70,18 +70,20 @@ global $post;
         }
     }
 
-    $loadMoreProps = [
-        'buttonId' => 'loadMore',
-        'buttonAlign' => 'center',
-        'buttonContent' => 'Load More',
-        'parentClass' => 'block-featured-posts'
-    ];
-    
-    echo wp_kses_post(
-        Components::render(
-            'button',
-            $loadMoreProps
-        )
-    );
     ?>
 </div>
+
+<?php
+$loadMoreProps = [
+    'loadMoreUrl' => '/wp-json/spacenews-api/news',
+    'loadMoreButtonLabel' => 'Load More',
+    'loadMoreContainer' => esc_attr($blockClass),
+];
+
+echo wp_kses_post(
+    Components::render(
+        'load-more',
+        $loadMoreProps
+    )
+);
+?>

@@ -10,7 +10,7 @@ $block-featured-posts: (
 	flex-wrap: wrap;
 
 	&[data-items-per-line='4'] {
-		> * {
+		> *:not(.block-featured-posts__load-more) {
 			@include flex-grid-width(12);
 
 			@include media(tablet) {
@@ -23,33 +23,6 @@ $block-featured-posts: (
 		}
 	}
 
-	&[data-items-per-line='3'] {
-		> * {
-			@include flex-grid-width(12);
-
-			@include media(tablet up) {
-				@include flex-grid-width(4);
-			}
-		}
-	}
-
-	&[data-items-per-line='2'] {
-		> * {
-			@include flex-grid-width(12);
-
-			@include media(tablet up) {
-				@include flex-grid-width(6);
-			}
-		}
-	}
-
-	&[data-items-per-line='1'] {
-		> * {
-			@include flex-grid-width(12);
-			padding-left: 0;
-			padding-right: 0;
-		}
-	}
 
 	> * {
 		padding: 45px map-get-strict($block-featured-posts, gutter);
@@ -62,5 +35,9 @@ $block-featured-posts: (
 
 	&__button {
 		margin: 0 auto;
+	}
+
+	&__load-more {
+		width: 100%;
 	}
 }
