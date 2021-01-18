@@ -5,6 +5,32 @@ $footer: (
 	colors: (
 		background: global-settings(colors, white),
 	),
+	flex-directions: (
+		mobile: (
+			flex-direction: column,
+		),
+		tablet: (
+			flex-direction: row,
+		),
+	),
+	logo-margin: (
+		mobile: (
+			margin-right: 0,
+			margin-bottom: 15px,
+		),
+		tablet: (
+			margin-right: 15px,
+			margin-bottom: 0,
+		),
+	),
+	column-margin: (
+		mobile: (
+			margin-bottom: 15px,
+		),
+		tablet: (
+			margin-bottom: 0,
+		),
+	),
 );
 
 .footer {
@@ -24,12 +50,15 @@ $footer: (
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		@include responsive($footer, flex-directions);
 	}
 
 	&__column {
 		flex: 1 0 auto;
 		align-items: center;
 		display: flex;
+		@include responsive($footer, flex-directions);
+		@include responsive($footer, column-margin);
 
 		&--left {
 			justify-content: flex-start;
@@ -52,7 +81,7 @@ $footer: (
 	}
 
 	&__logo {
-		margin-right: 15px;
+		@include responsive($footer, logo-margin);
 
 		.logo {
 			width: auto;
@@ -72,6 +101,5 @@ $footer: (
 		.menu-horizontal__item--current-menu-item a {
 			color: $base-gray-color;
 		}
-
 	}
 }
