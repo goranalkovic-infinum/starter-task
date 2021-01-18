@@ -21,7 +21,7 @@ $menu-horizontal: (
 			padding: 8px,
 		),
 		tablet: (
-			padding: 0,
+			padding: 0 15px,
 		),
 	),
 );
@@ -40,7 +40,6 @@ $menu-horizontal: (
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: map-get-strict($menu-horizontal, link-padding);
 		transition: 0.3s color ease-in-out;
 		font-weight: 600;
 
