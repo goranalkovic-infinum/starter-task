@@ -23,13 +23,14 @@ global $post;
 
 <div class="<?php echo esc_attr($blockClass); ?>" data-items-per-line=<?php echo \esc_attr($itemsPerLine); ?>>
     <?php
-    $request  = new \WP_REST_Request('GET', '/spacenews-api/news/latest');
+$request  = new \WP_REST_Request('GET', '/eightshift-libs/v1/news');
+$request->set_param('_limit', 4);
     $response = \rest_do_request($request);
 
     if ($response->is_error()) {
-        echo "Error loading news";
+        echo "<p>❌ Error loading news</p><br>";
     } else {
-        $data     = \rest_get_server()->response_to_data($response, true);
+        $data = \rest_get_server()->response_to_data($response, true);
 
         foreach ($data as $post) {
 
@@ -58,6 +59,7 @@ global $post;
 
             <div class="<?php echo esc_attr("{$blockClass}__item"); ?>">
                 <?php
+
                 echo wp_kses_post(
                     Components::render(
                         'post-card',
@@ -75,7 +77,7 @@ global $post;
 
 <?php
 $loadMoreProps = [
-    'loadMoreUrl' => '/wp-json/spacenews-api/news?html=1',
+    'loadMoreUrl' => '/wp-json/eightshift-libs/v1/news?html=1',
     'loadMoreButtonLabel' => 'Load More',
     'loadMoreContainer' => esc_attr($blockClass),
 ];
