@@ -1,5 +1,5 @@
 $menu-vertical: (
-	link-padding: 10px 0,
+	link-padding: 15px 0,
 	link-modifiers: (
 		normal: (
 			color: global-settings(colors, white),
@@ -12,14 +12,24 @@ $menu-vertical: (
 
 .menu-vertical {
 	@extend %list-reset;
-	background-color: global-settings(colors, primary);
 
 	&__link {
 		display: block;
 		text-decoration: none;
 		transition: 0.3s color ease-in-out;
 		padding: map-get-strict($menu-vertical, link-padding);
+		font-size: 150%;
+		text-align: center;
+		font-weight: 600;
 
 		@include link($menu-vertical, link-modifiers);
+
+		&:hover {
+			color: $base-black-color;
+		}
+	}
+
+	&__item--highlight &__link  {
+		font-weight: bold;
 	}
 }
