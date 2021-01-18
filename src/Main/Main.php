@@ -40,19 +40,9 @@ class Main extends AbstractMain
 	public function register(): void
 	{
 		\add_action('after_setup_theme', [$this, 'registerServices']);
-		\add_action('after_setup_theme', [$this, 'enableFeaturedImages']);
 		\add_action('rest_api_init', [$this, 'addPublicRestApi']);
 	}
 
-	/**
-	 * This method enables 'Featured image' functionality'.
-	 * 
-	 * @return void
-	 */
-	public function enableFeaturedImages(): void
-	{
-		\add_theme_support('post-thumbnails');
-	}
 
 	/**
 	 * This method adds a new API route.
