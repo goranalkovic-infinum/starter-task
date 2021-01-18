@@ -11,8 +11,8 @@ $heading: (
 				line-height: 1,
 			),
 			huge: (
-				font-size: 54px,
-				line-height: 1,
+				font-size: 64px,
+				line-height: 1.05,
 			),
 			summary: (
 				font-size: 16px,
@@ -29,12 +29,18 @@ $heading: (
 				line-height: 1,
 			),
 			huge: (
-				font-size: 90px,
+				font-size: 66px,
 				line-height: 1,
 			),
 			summary: (
 				font-size: 22px,
 				line-height: 1.36
+			),
+		),
+		desktop: (
+			huge: (
+				font-size: 90px,
+				line-height: 1,
 			),
 		),
 	)
@@ -57,7 +63,8 @@ $heading: (
 		@include text-align-modifiers;
 	}
 
-	&__uppercase--1, &__uppercase--true {
+	&__uppercase--1,
+	&__uppercase--true {
 		text-transform: uppercase;
 	}
 }
