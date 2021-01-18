@@ -4,7 +4,7 @@
 	&__item {
 		flex-shrink: 0;
 		width: 100%;
-		transition-property: transform;
+		transition: 0.3s transform ease-in-out, 0.3s opacity ease-in-out;
 		display: flex;
 	}
 
@@ -30,7 +30,8 @@
 		padding: 25px 12px;
 	}
 
-	.js-block-carousel-prev-arrow, .js-block-carousel-next-arrow {
+	.js-block-carousel-prev-arrow,
+	.js-block-carousel-next-arrow {
 		cursor: pointer;
 		height: 48px;
 		width: 48px;
@@ -53,7 +54,12 @@
 	.js-block-carousel-pagination {
 		@extend %paragraph-reset;
 		font-size: 18px;
-		font-weight: 700;
-		color: map-get-deep($paragraph, colors, black);
+		font-weight: bold;
+		color: $base-text-color;
+	}
+
+	.swiper-slide-next,
+	.swiper-slide-prev {
+		opacity: 0.3;
 	}
 }
