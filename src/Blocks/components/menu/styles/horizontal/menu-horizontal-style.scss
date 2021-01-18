@@ -8,6 +8,22 @@ $menu-horizontal: (
 			color: global-settings(colors, primary),
 		)
 	),
+	responsive-menu: (
+		mobile: (
+			flex-direction: column,
+		),
+		tablet: (
+			flex-direction: row,
+		),
+	),
+	responsive-menu-items: (
+		mobile: (
+			padding: 8px,
+		),
+		tablet: (
+			padding: 0,
+		),
+	),
 );
 
 .menu-horizontal {
@@ -16,6 +32,7 @@ $menu-horizontal: (
 	height: 100%;
 	display: flex;
 	align-items: center;
+	@include responsive($menu-horizontal, responsive-menu);
 
 	&__link {
 		text-decoration: none;
@@ -28,5 +45,6 @@ $menu-horizontal: (
 		font-weight: 600;
 
 		@include link($menu-horizontal, link-modifiers);
+		@include responsive($menu-horizontal, responsive-menu-items);
 	}
 }
