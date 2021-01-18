@@ -19,7 +19,7 @@ export class CarouselSlider {
 		new Swiper(item, {
 			loop: item.getAttribute('data-swiper-loop'),
 			slideClass: `${this.blockClass}__item`,
-			slidesPerView: 'auto',
+			slidesPerView: 2,
 			spaceBetween: 30,
 			keyboard: {
 				enabled: true,
@@ -45,6 +45,16 @@ export class CarouselSlider {
 					window.dispatchEvent(this.eventName);
 				},
 			},
+			breakpoints: {
+				// when width >= 1px
+				1: {
+					slidesPerView: 1,
+				},
+				// when width >= 849px
+				849: {
+					slidesPerView: 2,
+				},
+			}
 		});
 	}
 }
