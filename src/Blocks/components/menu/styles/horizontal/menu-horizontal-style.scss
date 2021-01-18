@@ -6,7 +6,7 @@ $menu-horizontal: (
 		),
 		hover: (
 			color: global-settings(colors, primary),
-		)
+		),
 	),
 );
 
@@ -28,5 +28,24 @@ $menu-horizontal: (
 		font-weight: 600;
 
 		@include link($menu-horizontal, link-modifiers);
+	}
+
+	&__item--highlight &__link {
+		max-height: 50px;
+		border-radius: 90px;
+
+		padding: 14px 24px;
+		margin-left: 15px;
+
+		color: global-settings(colors, $base-white-color);
+		background-color: global-settings(colors, primary);
+
+		transition: 0.3s color ease-in-out, 0.3s background-color ease-in-out;
+
+		font-weight: bold;
+
+		&:hover {
+			background-color: $base-black-color;
+		}
 	}
 }
