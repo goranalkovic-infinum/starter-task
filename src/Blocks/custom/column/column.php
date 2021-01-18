@@ -45,7 +45,7 @@ $componentClass = Components::classnames([
 	Components::responsiveSelectors($width, 'width', $blockClass),
 	Components::responsiveSelectors($offset, 'offset', $blockClass),
 	Components::responsiveSelectors($hide, 'hide', $blockClass, false),
-	Components::responsiveSelectors($order, 'order', $blockClass, true),
+	Components::responsiveSelectors($order, 'order', $blockClass),
 ]);
 ?>
 
