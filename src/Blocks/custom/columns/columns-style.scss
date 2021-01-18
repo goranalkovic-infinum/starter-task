@@ -3,4 +3,18 @@
 .block-columns {
 	@include columns-parent;
 	@include columns;
+
+	&__verticalAlign {
+		&--top {
+			align-items: flex-start;
+		}
+
+		&--center {
+			align-items: center;
+		}
+
+		&--bottom {
+			align-items: flex-end;
+		}
+	}
 }

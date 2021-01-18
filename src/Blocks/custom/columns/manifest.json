@@ -115,6 +115,10 @@
 		},
 		"verticalSpacingMobile": {
 			"type": "integer"
+		},
+		"verticalAlign": {
+			"type": "string",
+			"default": "default"
 		}
 	},
 	"options": {
@@ -128,6 +132,24 @@
 			"desktop",
 			"tablet",
 			"mobile"
+		],
+		"verticalAlignments": [
+			{
+				"label": "Default (stretch)",
+				"value": "default"
+			},
+			{
+				"label": "Top",
+				"value": "top"
+			},
+			{
+				"label": "Center",
+				"value": "center"
+			},
+			{
+				"label": "Bottom",
+				"value": "bottom"
+			}
 		]
 	}
 }
