@@ -6,6 +6,10 @@
 		width: 100%;
 		transition: 0.3s transform ease-in-out, 0.3s opacity ease-in-out;
 		display: flex;
+
+		&:not(.swiper-slide-active) {
+			opacity: 0.3;
+		}
 	}
 
 	&__item-inner {
@@ -56,10 +60,5 @@
 		font-size: 18px;
 		font-weight: bold;
 		color: $base-text-color;
-	}
-
-	.swiper-slide-next,
-	.swiper-slide-prev {
-		opacity: 0.3;
 	}
 }

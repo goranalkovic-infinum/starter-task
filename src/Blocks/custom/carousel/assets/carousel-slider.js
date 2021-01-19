@@ -54,6 +54,14 @@ export class CarouselSlider {
 				849: {
 					slidesPerView: 2,
 				},
+				// when width >= 1470px
+				1470: {
+					slidesPerView: 3,
+				},
+				// when width >= 2001px
+				2001: {
+					slidesPerView: 5,
+				},
 			}
 		});
 	}
