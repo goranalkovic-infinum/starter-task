@@ -10,7 +10,7 @@ export class CarouselSlider {
 		this.prevElement = options.prevElement;
 		this.paginationElement = options.paginationElement;
 		this.eventName = options.eventName;
-		this.swipeHandler = options.eventName;
+		this.touchEventsTarget = options.eventName;
 	}
 
 	init() {
@@ -24,7 +24,7 @@ export class CarouselSlider {
 			keyboard: {
 				enabled: true,
 			},
-			swipeHandler: this.swipeHandler,
+			touchEventsTarget: this.touchEventsTarget,
 			centeredSlides: true,
 			grabCursor: false,
 			breakpointsInverse: true,
@@ -53,6 +53,14 @@ export class CarouselSlider {
 				// when width >= 849px
 				849: {
 					slidesPerView: 2,
+				},
+				// when width >= 1470px
+				1470: {
+					slidesPerView: 3,
+				},
+				// when width >= 2001px
+				2001: {
+					slidesPerView: 5,
 				},
 			}
 		});
