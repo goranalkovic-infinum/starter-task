@@ -10,7 +10,7 @@ export class CarouselSlider {
 		this.prevElement = options.prevElement;
 		this.paginationElement = options.paginationElement;
 		this.eventName = options.eventName;
-		this.swipeHandler = options.eventName;
+		this.touchEventsTarget = options.eventName;
 	}
 
 	init() {
@@ -24,7 +24,7 @@ export class CarouselSlider {
 			keyboard: {
 				enabled: true,
 			},
-			swipeHandler: this.swipeHandler,
+			touchEventsTarget: this.touchEventsTarget,
 			centeredSlides: true,
 			grabCursor: false,
 			breakpointsInverse: true,

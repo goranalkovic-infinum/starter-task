@@ -15,7 +15,7 @@ domReady(() => {
 					nextElement: `${selector}-next-arrow`,
 					prevElement: `${selector}-prev-arrow`,
 					paginationElement: `${selector}-pagination`,
-					swipeHandler: `${selector} .swiper-wrapper`,
+					touchEventsTarget: `${selector} .swiper-wrapper`,
 					eventName,
 				});
 				carouselSlider.init();
