@@ -4,8 +4,10 @@ This repository contains my solution for the [Eightshift Starter Task](https://g
 
 ## Final design
 
-Desktop:
+**Desktop**
 ![Desktop](desktop.jpeg)
 
-Mobile:
+---
+
+**Mobile**
 ![Mobile](mobile.jpeg)
