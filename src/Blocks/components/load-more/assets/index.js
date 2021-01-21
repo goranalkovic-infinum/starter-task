@@ -1,7 +1,5 @@
 import domReady from '@wordpress/dom-ready';
 
-
-
 domReady(() => {
 	let elements = document.querySelectorAll('.load-more');
 
