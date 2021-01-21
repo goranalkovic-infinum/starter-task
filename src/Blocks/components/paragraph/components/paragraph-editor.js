@@ -29,7 +29,7 @@ export const ParagraphEditor = (attributes) => {
 		selector(paragraphColor, componentClass, 'color', paragraphColor),
 		selector(paragraphSize, componentClass, 'size', paragraphSize),
 		selector(paragraphAlign, componentClass, 'align', paragraphAlign),
-		selector(paragraphFontStyle, componentClass, 'fontStyle', paragraphFontStyle),
+		selector(paragraphFontStyle, componentClass, 'font-style', paragraphFontStyle),
 		selector(blockClass, blockClass, selectorClass),
 	]);
 

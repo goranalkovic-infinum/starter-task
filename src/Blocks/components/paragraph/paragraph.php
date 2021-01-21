@@ -31,7 +31,7 @@ $paragraphClass = Components::classnames([
 	Components::selector($paragraphColor, $componentClass, 'color', $paragraphColor),
 	Components::selector($paragraphSize, $componentClass, 'size', $paragraphSize),
 	Components::selector($paragraphAlign, $componentClass, 'align', $paragraphAlign),
-	Components::selector($paragraphFontStyle, $componentClass, 'fontStyle', $paragraphFontStyle),
+	Components::selector($paragraphFontStyle, $componentClass, 'font-style', $paragraphFontStyle),
 	Components::selector($blockClass, $blockClass, $selectorClass),
 ]);
 
