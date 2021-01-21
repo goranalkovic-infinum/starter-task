@@ -47,12 +47,12 @@
 				"value": "small"
 			},
 			{
-				"label": "Excerptional (16px)",
-				"value": "excerptional"
+				"label": "Very small (16px)",
+				"value": "verysmall"
 			},
 			{
-				"label": "Datey (14px)",
-				"value": "datey"
+				"label": "Tiny (14px)",
+				"value": "tiny"
 			}
 		],
 		"aligns": [
