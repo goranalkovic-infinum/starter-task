@@ -14,7 +14,7 @@ $heading: (
 				font-size: 54px,
 				line-height: 1,
 			),
-			summary: (
+			small: (
 				font-size: 16px,
 				line-height: 1.36
 			),
@@ -32,7 +32,7 @@ $heading: (
 				font-size: 90px,
 				line-height: 1,
 			),
-			summary: (
+			small: (
 				font-size: 22px,
 				line-height: 1.36
 			),
@@ -57,7 +57,8 @@ $heading: (
 		@include text-align-modifiers;
 	}
 
-	&__uppercase--1, &__uppercase--true {
+	&__uppercase--1,
+	&__uppercase--true {
 		text-transform: uppercase;
 	}
 }
