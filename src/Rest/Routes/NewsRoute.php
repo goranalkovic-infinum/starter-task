@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The class register route for $className endpoint
+ * The class register route for NewsRoute endpoint
  *
  * @package Unicorns\Rest\Routes
  */
