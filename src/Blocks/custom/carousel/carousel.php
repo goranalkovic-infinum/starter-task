@@ -30,13 +30,23 @@ $carouselClass = Components::classnames([
 		<?php echo wp_kses_post($innerBlockContent); ?>
 	</div>
 
-	<div class="<?php echo esc_attr('control-container'); ?>">
-		<div class="<?php echo esc_attr('js-block-carousel-prev-arrow'); ?>">
-			<img src="<?php echo \apply_filters(Manifest::MANIFEST_ITEM, 'arrow-left.svg') ?>" alt="Previous">
+	<div class="<?php echo esc_attr($carouselClass); ?>__control-container">
+		<div className="<?php echo esc_attr($carouselClass); ?>__icon <?php echo esc_attr($carouselClass); ?>__icon--left">
+			<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+				<g fill="none" fill-rule="evenodd">
+					<circle cx="24" cy="24" r="24" fill="#EEE" />
+					<path stroke="#979797" stroke-width="2" d="M29.527 14.158l-9.685 9.684 9.685 9.685" />
+				</g>
+			</svg>
 		</div>
-		<div class="<?php echo esc_attr('js-block-carousel-next-arrow'); ?>">
-			<img src="<?php echo \apply_filters(Manifest::MANIFEST_ITEM, 'arrow-right.svg') ?>" alt="Next">
+		<div className="<?php echo esc_attr($carouselClass); ?>__icon <?php echo esc_attr($carouselClass); ?>__icon--right">
+			<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+				<g fill="none" fill-rule="evenodd">
+					<circle cx="24" cy="24" r="24" fill="#EEE" />
+					<path stroke="#979797" stroke-width="2" d="M19.842 14.158l9.685 9.684-9.685 9.685" />
+				</g>
+			</svg>
 		</div>
-		<div class="<?php echo esc_attr('js-block-carousel-pagination'); ?>"></div>
+		<div className="<?php echo esc_attr($carouselClass); ?>__pagination"></div>
 	</div>
 </div>
