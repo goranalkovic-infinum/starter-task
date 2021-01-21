@@ -2,6 +2,7 @@
 	"componentName": "load-more",
 	"title": "Load more",
 	"componentClass": "load-more",
+	"componentJsClass": ".js-load-more",
 	"example": {
 		"attributes": {
 			"loadMoreButtonLabel": "Load More",
@@ -18,6 +19,10 @@
 		},
 		"loadMoreContainer": {
 			"type": "string"
+		},
+		"loadMoreUse": {
+			"type": "boolean",
+			"default": "true"
 		}
 	}
 }
