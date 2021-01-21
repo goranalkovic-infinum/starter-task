@@ -4,40 +4,57 @@ import { Fragment } from '@wordpress/element';
 import classnames from 'classnames';
 import { RichText } from '@wordpress/block-editor';
 import { checkAttr, selector } from '@eightshift/frontend-libs/scripts/helpers';
+import { ButtonEditor } from '../../../components/button/components/button-editor';
+
 import manifest from '../manifest.json';
 
 export const LoadMoreEditor = (attributes) => {
 	const {
+		setAttributes,
 		componentName = manifest.componentName,
 		componentClass = manifest.componentClass,
-		selectorClass = componentClass,
-		blockClass,
+		componentTitle = manifest.title,
+		componentDescription = manifest.description,
 
+		buttonLabelPlaceholder = __('Button label', 'unicorns'),
 		loadMoreUse = checkAttr('loadMoreUse', attributes, manifest, componentName),
+
 		loadMoreButtonLabel = checkAttr('loadMoreButtonLabel', attributes, manifest, componentName),
 	} = attributes;
-
-	const buttonWrapClass = classnames([
-		selector(componentClass, `${componentClass}-wrap`),
-		selector(buttonAlign, `${componentClass}-wrap`, 'align', buttonAlign),
-		selector(blockClass, blockClass, `${selectorClass}-wrap`),
-	]);
-
-	const buttonClass = classnames([
-		componentClass,
-		selector(buttonSize, componentClass, 'size', buttonSize),
-		selector(buttonColor, componentClass, 'color', buttonColor),
-		selector(buttonWidth, componentClass, 'size-width', buttonWidth),
-		selector(!(buttonContent && buttonUrl), `${componentClass}-placeholder`),
-		selector(blockClass, blockClass, selectorClass),
-	]);
 
 	return (
 		<Fragment>
 			{loadMoreUse &&
-				<div className={buttonWrapClass}>
-					<i>{loadMoreButtonLabel}</i>
-				</div>
+				<Fragment>
+					<div style={{
+						border: '1px solid #808080',
+						borderRadius: '0.5rem',
+						padding: '1rem',
+						textAlign: 'center'
+					}}>
+						<p style={{
+							marginTop: '0',
+							marginBottom: '0.5rem'
+						}}>
+							{componentTitle}
+						</p>
+						<small><i>{componentDescription}</i></small>
+						<br />
+						<br />
+
+						<div className="btn-wrap btn-wrap__align--center">
+							<div className="btn">
+								<RichText
+									placeholder={buttonLabelPlaceholder}
+									value={loadMoreButtonLabel}
+									onChange={(value) => setAttributes({ [`loadMoreButtonLabel`]: value })}
+									className={componentClass}
+									keepPlaceholderOnFocus
+									allowedFormats={[]}
+								/></div>
+						</div>
+					</div>
+			</Fragment>
 			}
 		</Fragment>
 	);
