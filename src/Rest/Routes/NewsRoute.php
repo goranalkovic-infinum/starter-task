@@ -80,18 +80,20 @@ class NewsRoute extends AbstractRoute implements CallableRouteInterface
 
 		$returnHtml = false;
 
-		foreach ($params as $name => $value) {
-			if ($name != '_limit' && $name != '_start') {
-				unset($params[$name]);
-			}
-			if ($name == 'html') {
-				$returnHtml = true;
+		if (isset($params)) {
+			foreach ($params as $name => $value) {
+				if ($name != '_limit' && $name != '_start') {
+					unset($params[$name]);
+				}
+				if ($name == 'html') {
+					$returnHtml = true;
+				}
 			}
 		}
 
 		$parsedParams = "";
 
-		if (sizeof($params) > 0) {
+		if (isset($params) && sizeof($params) > 0) {
 			$parsedParams = '?' . http_build_query($params);
 		}
 
