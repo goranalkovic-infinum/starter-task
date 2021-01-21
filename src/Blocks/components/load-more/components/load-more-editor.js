@@ -1,10 +1,8 @@
 import React from 'react';
 import { __ } from '@wordpress/i18n';
 import { Fragment } from '@wordpress/element';
-import classnames from 'classnames';
 import { RichText } from '@wordpress/block-editor';
 import { checkAttr, selector } from '@eightshift/frontend-libs/scripts/helpers';
-import { ButtonEditor } from '../../../components/button/components/button-editor';
 
 import manifest from '../manifest.json';
 
