@@ -1,5 +1,20 @@
 @import '~swiper/swiper.scss';
 
+$block-carousel: (
+	pagination: (
+		fontSize: 18px,
+		fontWeight: bold,
+		color: $base-text-color,
+	),
+	button: (
+		size: 48px,
+		transition: 0.5s opacity ease-out 0.5s transform ease-out,
+		hoverScale: 1.1,
+		disabledOpacity: 0.2,
+		margin: 0 23px,
+	)
+);
+
 .block-carousel {
 	&__item {
 		flex-shrink: 0;
@@ -27,38 +42,37 @@
 		cursor: grab;
 	}
 
-	.control-container {
+	&__control-container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		padding: 25px 12px;
-	}
 
-	.js-block-carousel-prev-arrow,
-	.js-block-carousel-next-arrow {
-		cursor: pointer;
-		height: 48px;
-		width: 48px;
-		transition: 0.5s all ease-out;
+		&__icon {
+			cursor: pointer;
+			height: map-get-deep($block-carousel, button, size);
+			width: map-get-deep($block-carousel, button, size);
+			transition: map-get-deep($block-carousel, button, transition);
 
-		:hover {
-			transform: scale(1.1);
+			&--next {
+				margin: map-get-deep($block-carousel, button, margin);
+			}
+
+			&:hover {
+				transform: scale(map-get-deep($block-carousel, button, hoverScale));
+			}
+
+			&:disabled {
+				opacity: map-get-deep($block-carousel, button, disabledOpacity);
+				pointer-events: none;
+			}
 		}
-	}
 
-	.swiper-button-disabled {
-		opacity: 0.25;
-		pointer-events: none;
-	}
-
-	.js-block-carousel-next-arrow {
-		margin: 0 23px;
-	}
-
-	.js-block-carousel-pagination {
-		@extend %paragraph-reset;
-		font-size: 18px;
-		font-weight: bold;
-		color: $base-text-color;
+		&__pagination {
+			@extend %paragraph-reset;
+			color: map-get-deep($block-carousel, pagination, color);
+			font-size: map-get-deep($block-carousel, pagination, fontSize);
+			font-weight: map-get-deep($block-carousel, pagination, fontWeight);
+		}
 	}
 }
