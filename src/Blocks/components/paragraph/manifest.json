@@ -63,7 +63,7 @@
 		"colors": [
 			"primary",
 			"black",
-			"gray"
+			"muted"
 		],
 		"fontStyles": [
 			"default",

@@ -2,7 +2,7 @@ $paragraph: (
 	colors: (
 		primary: global-settings(colors, primary),
 		black: global-settings(colors, black),
-		gray: $base-gray-color
+		muted: $base-text-muted-color
 	),
 	link-color: map-get-strict($link, colors),
 	sizes: (
