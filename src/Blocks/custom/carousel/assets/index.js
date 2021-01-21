@@ -12,12 +12,13 @@ domReady(() => {
 				const carouselSlider = new CarouselSlider({
 					element,
 					blockClass: 'block-carousel',
-					nextElement: `${selector}-next-arrow`,
-					prevElement: `${selector}-prev-arrow`,
-					paginationElement: `${selector}-pagination`,
+					nextElement: `.block-carousel__icon--next`,
+					prevElement: `.block-carousel__icon--prev`,
+					paginationElement: `.block-carousel__pagination`,
 					swipeHandler: `${selector} .swiper-wrapper`,
 					eventName,
 				});
+				console.log(carouselSlider);
 				carouselSlider.init();
 			});
 		});

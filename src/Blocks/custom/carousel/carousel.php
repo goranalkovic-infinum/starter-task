@@ -31,7 +31,7 @@ $carouselClass = Components::classnames([
 	</div>
 
 	<div class="<?php echo esc_attr($blockClass); ?>__control-container">
-		<div className="<?php echo esc_attr($blockClass); ?>__icon <?php echo esc_attr($blockClass); ?>__icon--prev">
+		<div class="<?php echo esc_attr($blockClass); ?>__icon <?php echo esc_attr($blockClass); ?>__icon--prev">
 			<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
 				<g fill="none" fill-rule="evenodd">
 					<circle cx="24" cy="24" r="24" fill="#EEE" />
@@ -39,7 +39,7 @@ $carouselClass = Components::classnames([
 				</g>
 			</svg>
 		</div>
-		<div className="<?php echo esc_attr($blockClass); ?>__icon <?php echo esc_attr($blockClass); ?>__icon--next">
+		<div class="<?php echo esc_attr($blockClass); ?>__icon <?php echo esc_attr($blockClass); ?>__icon--next">
 			<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
 				<g fill="none" fill-rule="evenodd">
 					<circle cx="24" cy="24" r="24" fill="#EEE" />
@@ -47,6 +47,6 @@ $carouselClass = Components::classnames([
 				</g>
 			</svg>
 		</div>
-		<div className="<?php echo esc_attr($blockClass); ?>__pagination"></div>
+		<div class="<?php echo esc_attr($blockClass); ?>__pagination"></div>
 	</div>
 </div>

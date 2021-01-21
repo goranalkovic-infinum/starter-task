@@ -24,7 +24,7 @@ export class CarouselSlider {
 			keyboard: {
 				enabled: true,
 			},
-			swipeHandler: this.swipeHandler,
+			touchEventsTarget: this.swipeHandler,
 			centeredSlides: true,
 			grabCursor: false,
 			breakpointsInverse: true,

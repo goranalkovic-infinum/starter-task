@@ -3,8 +3,8 @@
 $block-carousel: (
 	pagination: (
 		fontSize: 18px,
-		fontWeight: bold,
 		color: $base-text-color,
+		fontWeight: bold,
 	),
 	button: (
 		size: 48px,
@@ -47,32 +47,32 @@ $block-carousel: (
 		justify-content: center;
 		align-items: center;
 		padding: 25px 12px;
+	}
 
-		&__icon {
-			cursor: pointer;
-			height: map-get-deep($block-carousel, button, size);
-			width: map-get-deep($block-carousel, button, size);
-			transition: map-get-deep($block-carousel, button, transition);
+	&__icon {
+		cursor: pointer;
+		height: map-get-deep($block-carousel, button, size);
+		width: map-get-deep($block-carousel, button, size);
+		transition: map-get-deep($block-carousel, button, transition);
 
-			&--next {
-				margin: map-get-deep($block-carousel, button, margin);
-			}
-
-			&:hover {
-				transform: scale(map-get-deep($block-carousel, button, hoverScale));
-			}
-
-			&:disabled {
-				opacity: map-get-deep($block-carousel, button, disabledOpacity);
-				pointer-events: none;
-			}
+		&--next {
+			margin: map-get-deep($block-carousel, button, margin);
 		}
 
-		&__pagination {
-			@extend %paragraph-reset;
-			color: map-get-deep($block-carousel, pagination, color);
-			font-size: map-get-deep($block-carousel, pagination, fontSize);
-			font-weight: map-get-deep($block-carousel, pagination, fontWeight);
+		&:hover {
+			transform: scale(map-get-deep($block-carousel, button, hoverScale));
 		}
+
+		&:disabled {
+			opacity: map-get-deep($block-carousel, button, disabledOpacity);
+			pointer-events: none;
+		}
+	}
+
+	&__pagination {
+		@extend %paragraph-reset;
+		color: map-get-deep($block-carousel, pagination, color);
+		font-size: map-get-deep($block-carousel, pagination, fontSize);
+		font-weight: map-get-deep($block-carousel, pagination, fontWeight);
 	}
 }
