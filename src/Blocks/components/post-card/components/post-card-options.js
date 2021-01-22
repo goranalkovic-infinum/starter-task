@@ -40,12 +40,12 @@ export const CardOptions = (attributes) => {
 			<hr />
 
 			<ParagraphOptions
-		{...attributes}
-		componentName={'excerpt'}
-		label={'Excerpt'}
-		paragraphColor={attributes.excerptColor}
-		paragraphSize={attributes.excerptSize}
-		setAttributes={setAttributes}
+				{...attributes}
+				componentName={'excerpt'}
+				label={'Excerpt'}
+				paragraphColor={attributes.excerptColor}
+				paragraphSize={attributes.excerptSize}
+				setAttributes={setAttributes}
 			/>
 
 			<hr />
