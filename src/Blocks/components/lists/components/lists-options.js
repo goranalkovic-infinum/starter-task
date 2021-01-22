@@ -74,18 +74,18 @@ export const ListsOptions = (attributes) => {
 
 					<hr />
 
-					<small>Advanced</small>
+					<small>__('Advanced', 'Unicorns')</small>
 
 					<ToggleControl
-						label={__('Show bullet points')}
+						label={__('Show bullet points', 'Unicorns')}
 						checked={listsShowBullets}
 						onChange={(value) => setAttributes({ [`${componentName}ShowBullets`]: value })}
 					/>					
 					
 					<ToggleControl
-						label={__('Horizontal list')}
+						label={__('Horizontal list', 'Unicorns')}
 						checked={listsHorizontal}
-						help={'Best used with "Show bullet points" disabled'}
+						help={__('Best used with "Show bullet points" disabled', 'Unicorns')}
 						onChange={(value) => setAttributes({ [`${componentName}Horizontal`]: value })}
 					/>		
 				</Fragment>
