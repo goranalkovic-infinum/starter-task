@@ -44,6 +44,7 @@ $loadMoreClass = Components::classnames([
 			'blockClass' => $componentClass,
 			'buttonContent' => $loadMoreButtonLabel,
 			'buttonAlign' => 'center',
+			'selectorClass' => 'button'
 		]
 	)));
 	?>
