@@ -25,7 +25,7 @@ $headingLevel = Components::checkAttr('headingLevel', $attributes, $manifest, $c
 $headingColor = Components::checkAttr('headingColor', $attributes, $manifest, $componentName);
 $headingSize = Components::checkAttr('headingSize', $attributes, $manifest, $componentName);
 $headingAlign = Components::checkAttr('headingAlign', $attributes, $manifest, $componentName);
-$headingUppercase = Components::checkAttr('headingUppercase', $attributes, $manifest, $componentName);
+$headingUppercase = Components::checkAttr('headingUppercase', $attributes, $manifest, $componentName) ? 'true' : 'false';
 
 $headingClass = Components::classnames([
 	$componentClass,
