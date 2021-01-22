@@ -34,14 +34,21 @@ $lists: (
 	),
 );
 
+%chip-style {
+	margin: 0;
+	border-radius: 22px;
+	background-color: $base-aluminum-color;
+	padding: 0 18px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .lists {
 	margin: 0;
 	padding: 0;
 	color: map-get-deep($lists, colors, primary);
-
-	li {
-		margin-left: 22px;
-	}
 
 	&__color {
 		@include modifiers-deep($lists, colors, color);
@@ -57,7 +64,6 @@ $lists: (
 
 	&__show-bullets--false {
 		list-style-type: none;
-		margin: 0;
 		padding: 0;
 	}
 
@@ -69,14 +75,13 @@ $lists: (
 		}
 	}
 
-	&__special--true li {
-		margin: 0;
-		border-radius: 22px;
-		background-color: $base-light-gray-color;
-		padding: 0 18px;
-		height: 30px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+	&__style {
+		&--default li {
+			margin-left: 22px;
+		}
+
+		&--chip li {
+			@extend %chip-style;
+		}
 	}
 }
