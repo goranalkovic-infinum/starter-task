@@ -3,7 +3,6 @@
 $block-carousel: (
 	pagination: (
 		fontSize: 18px,
-		color: $base-text-color,
 		fontWeight: bold,
 	),
 	button: (
@@ -71,7 +70,6 @@ $block-carousel: (
 
 	&__pagination {
 		@extend %paragraph-reset;
-		color: map-get-deep($block-carousel, pagination, color);
 		font-size: map-get-deep($block-carousel, pagination, fontSize);
 		font-weight: map-get-deep($block-carousel, pagination, fontWeight);
 	}
