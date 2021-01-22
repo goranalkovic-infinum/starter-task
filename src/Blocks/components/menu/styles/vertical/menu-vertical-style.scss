@@ -5,7 +5,7 @@ $menu-vertical: (
 			color: global-settings(colors, white),
 		),
 		hover: (
-			color: global-settings(colors, primary),
+			color: global-settings(colors, black),
 		),
 	),
 );
@@ -21,10 +21,6 @@ $menu-vertical: (
 		padding: map-get-strict($menu-vertical, link-padding);
 
 		@include link($menu-vertical, link-modifiers);
-
-		&:hover {
-			color: $base-black-color;
-		}
 	}
 
 	&__item--highlight &__link {
