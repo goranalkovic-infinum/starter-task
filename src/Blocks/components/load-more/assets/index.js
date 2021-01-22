@@ -1,13 +1,15 @@
+
 async function load() { 
 	let domReady = await import('@wordpress/dom-ready');
+	let manifest = await import('../manifest.json');
 
 	domReady.default(() => {
 		const selector = '.js-load-more'
 		let elements = document.querySelectorAll(selector);
-	
+
 		for (let element of elements) {
 			const url = element.dataset.url;
-			const button = element.querySelector('button');
+			const button = element.querySelector(`${selector} ${manifest.componentName}__button`);
 			const pagination = element.dataset.paginated;
 			const startParam = element.dataset.startItemParam;
 			const limitParam = element.dataset.perPageParam;
