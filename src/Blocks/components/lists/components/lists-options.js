@@ -74,8 +74,6 @@ export const ListsOptions = (attributes) => {
 
 					<hr />
 
-					<small>__('Advanced', 'Unicorns')</small>
-
 					<ToggleControl
 						label={__('Show bullet points', 'Unicorns')}
 						checked={listsShowBullets}
