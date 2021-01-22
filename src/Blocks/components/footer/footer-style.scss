@@ -30,6 +30,10 @@ $footer: (
 			margin-bottom: 0,
 		),
 	),
+	activeColor: $base-gray-color,
+	copyrightColor: $base-gray-color,
+	logoHeight: 39px,
+	menuFontWeight: 600,
 );
 
 .footer {
@@ -37,7 +41,6 @@ $footer: (
 	padding: 40px map-get-strict($footer, site-padding);
 	top: 0;
 	background: map-get-deep($footer, colors, background);
-	height: map-get-strict($footer, height);
 	width: 100%;
 	position: relative;
 
@@ -73,7 +76,7 @@ $footer: (
 			justify-content: flex-end;
 
 			.copyright {
-				color: $base-gray-color;
+				color: map-get-strict($footer, copyrightColor);
 				font-weight: 600;
 			}
 		}
@@ -87,18 +90,20 @@ $footer: (
 		}
 
 		img {
-			height: 39px;
+			height: map-get-strict($footer, logoHeight);
 		}
 	}
 
 	&__menu {
 		a {
 			color: global-settings(colors, primary);
-			font-weight: 600;
+			font-weight: map-get-strict($footer, menuFontWeight);
 		}
 
-		.menu-horizontal__item--current-menu-item a {
-			color: $base-gray-color;
+		.menu-horizontal {
+			&__item--current-menu-item a {
+				color: map-get-strict($footer, activeColor);
+			}
 		}
 	}
 }
