@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template for the Card Component.
+ * Template for the PostCard Component.
  *
  * @package Unicorns
  */
