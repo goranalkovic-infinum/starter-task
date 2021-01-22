@@ -2,7 +2,7 @@ $paragraph: (
 	colors: (
 		primary: global-settings(colors, primary),
 		black: global-settings(colors, black),
-		muted: $base-text-muted-color
+		muted: global-settings(colors, charcoal)
 	),
 	link-color: map-get-strict($link, colors),
 	sizes: (
@@ -33,11 +33,11 @@ $paragraph: (
 			),
 			verysmall: (
 				font-size: 16px,
-				line-height: 1.6875,
+				line-height: 1.7,
 			),
 			tiny: (
 				font-size: 14px,
-				line-height: 1.3578,
+				line-height: 1.4,
 			)
 		),
 	),
