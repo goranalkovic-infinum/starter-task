@@ -44,9 +44,9 @@
 			"type": "boolean",
 			"default": false
 		},
-		"listsSpecial": {
-			"type": "boolean",
-			"default": false
+		"listsStyle": {
+			"type": "string",
+			"default": "default"
 		}
 	},
 	"options": {
@@ -72,6 +72,16 @@
 		"colors": [
 			"primary",
 			"black"
+		],
+		"styles": [
+			{
+				"label": "Default",
+				"value": "default"
+			},
+			{
+				"label": "Chip",
+				"value": "chip"
+			}
 		]
 	}
 }
