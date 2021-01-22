@@ -1,8 +1,9 @@
 {
 	"componentName": "load-more",
 	"title": "Load more",
+	"description": "Loads dynamic content",
 	"componentClass": "load-more",
-	"componentJsClass": ".js-load-more",
+	"componentJsClass": "js-load-more",
 	"example": {
 		"attributes": {
 			"loadMoreButtonLabel": "Load More",
@@ -23,6 +24,34 @@
 		"loadMoreUse": {
 			"type": "boolean",
 			"default": "true"
+		},
+		"loadMoreUsePagination": {
+			"type": "boolean",
+			"default": "true"
+		},
+		"loadMoreStartItem": {
+			"type": "number",
+			"default": 0
+		},
+		"loadMoreItemsPerPage": {
+			"type": "number",
+			"default": 4
+		},
+		"loadMoreStartItemParameterName": {
+			"type": "string"
+		},
+		"loadMoreItemsPerPageParameterName": {
+			"type": "string"
+		}
+	},
+	"options": {
+		"loadMoreStartItem": {
+			"min": 0,
+			"max": 18
+		},
+		"loadMoreItemsPerPage": {
+			"min": 1,
+			"max": 18
 		}
 	}
 }
