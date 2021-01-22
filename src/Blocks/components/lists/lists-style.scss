@@ -17,7 +17,7 @@ $lists: (
 			tiny: (
 				font-size: 12px,
 				font-weight: 600,
-			)
+			),
 		),
 		large: (
 			default: (
@@ -29,7 +29,7 @@ $lists: (
 			tiny: (
 				font-size: 14px,
 				font-weight: 600,
-			)
+			),
 		),
 	),
 );
@@ -45,9 +45,8 @@ $lists: (
 
 	&__color {
 		@include modifiers-deep($lists, colors, color);
-	}	
-	
-	
+	}
+
 	&__size {
 		@include responsive-modifiers($lists, sizes);
 	}
@@ -56,21 +55,21 @@ $lists: (
 		@include text-align-modifiers;
 	}
 
-	&__showBullets--0, &__showBullets--false {
+	&__show-bullets--false {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
 	}
-	
-	&__horizontal--1, &__horizontal--true {
+
+	&__horizontal--true {
 		display: flex;
 
 		li:not(:last-child) {
 			margin-right: 10px;
 		}
-	}	
-	
-	&__special--1 li, &__special--true li {
+	}
+
+	&__special--true li {
 		margin: 0;
 		border-radius: 22px;
 		background-color: $base-light-gray-color;
