@@ -29,6 +29,7 @@ $loadMoreItemsPerPage = Components::checkAttr('loadMoreItemsPerPage', $attribute
 $loadMoreItemsPerPageParameterName = Components::checkAttr('loadMoreItemsPerPageParameterName', $attributes, $manifest, $componentName);
 $loadMoreStartItem = Components::checkAttr('loadMoreStartItem', $attributes, $manifest, $componentName);
 $loadMoreStartItemParameterName = Components::checkAttr('loadMoreStartItemParameterName', $attributes, $manifest, $componentName);
+$loadMoreInitialLoad = $attributes['loadMoreInitialLoad'] ?? 'false';
 
 $loadMoreClass = Components::classnames([
 	$componentClass,
@@ -38,7 +39,7 @@ $loadMoreClass = Components::classnames([
 
 ?>
 
-<div class="<?php echo \esc_attr($loadMoreClass); ?>" data-url="<?php echo \esc_url_raw($loadMoreUrl); ?>" data-paginated="<?php echo \esc_attr($loadMoreUsePagination); ?>" data-per-page="<?php echo \esc_attr($loadMoreItemsPerPage); ?>" data-per-page-param="<?php echo \esc_attr($loadMoreItemsPerPageParameterName); ?>" data-start-item="<?php echo \esc_attr($loadMoreStartItem); ?>" data-start-item-param="<?php echo \esc_attr($loadMoreStartItemParameterName); ?>">
+<div class="<?php echo \esc_attr($loadMoreClass); ?>" data-initial-load="<?php echo \esc_attr($loadMoreInitialLoad); ?>" data-url="<?php echo \esc_url_raw($loadMoreUrl); ?>" data-paginated="<?php echo \esc_attr($loadMoreUsePagination); ?>" data-per-page="<?php echo \esc_attr($loadMoreItemsPerPage); ?>" data-per-page-param="<?php echo \esc_attr($loadMoreItemsPerPageParameterName); ?>" data-start-item="<?php echo \esc_attr($loadMoreStartItem); ?>" data-start-item-param="<?php echo \esc_attr($loadMoreStartItemParameterName); ?>">
 	<div class="<?php echo \esc_attr("{$componentJsClass}-container") ?>"></div>
 
 	<?php

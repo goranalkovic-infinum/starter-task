@@ -38,7 +38,11 @@
 		},
 		"loadMoreItemsPerPageParameterName": {
 			"type": "string"
-		}
+		},
+        "loadMoreInitialLoad": {
+            "type": "boolean",
+            "default": "false"
+        }
 	},
 	"options": {
 		"loadMoreStartItem": {

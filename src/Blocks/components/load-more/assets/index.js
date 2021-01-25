@@ -18,6 +18,7 @@ domReady(() => {
 						limitParam: element.dataset.perPageParam,
 						start: parseInt(element.dataset.startItem),
 						limit: parseInt(element.dataset.perPage),
+						initialLoad: element.dataset.initialLoad
 					}
 				);
 

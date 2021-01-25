@@ -9,6 +9,7 @@ export class Loader {
         this.limitParam = options.limitParam;
         this.limit = options.limit;
         this.start = options.start;
+        this.initialLoad = options.initialLoad;
     }
 
     init() {
@@ -38,5 +39,9 @@ export class Loader {
         };
 
         button.addEventListener('click', loadMoreContent);
+
+        if (this.initialLoad == 'true') {
+            loadMoreContent();
+        }
     }
 }
