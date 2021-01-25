@@ -65,7 +65,7 @@ export const LoadMoreOptions = (attributes) => {
 						<Fragment>
 							<RangeControl
 								label="Items per page"
-								value={loadMoreItemsPerPage ?? 0}
+								value={loadMoreItemsPerPage}
 								onChange={(value) => setAttributes({ [`loadMoreItemsPerPage`]: value })}
 								min={options.loadMoreItemsPerPage.min}
 								max={options.loadMoreItemsPerPage.max}
@@ -78,7 +78,7 @@ export const LoadMoreOptions = (attributes) => {
 							/>
 							<RangeControl
 								label="Starting item index"
-								value={loadMoreStartItem ?? 0}
+								value={loadMoreStartItem}
 								onChange={(value) => setAttributes({ [`loadMoreStartItem`]: value })}
 								min={options.loadMoreStartItem.min}
 								max={options.loadMoreStartItem.max}
@@ -86,7 +86,7 @@ export const LoadMoreOptions = (attributes) => {
 							/>
 							<TextControl
 								label="Starting item index URL parameter"
-								value={loadMoreStartItemParameterName ?? ''}
+								value={loadMoreStartItemParameterName}
 								onChange={(value) => setAttributes({ [`loadMoreStartItemParameterName`]: value })}
 							/>
 						</Fragment>
