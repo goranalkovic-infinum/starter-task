@@ -1,19 +1,11 @@
 import React from 'react';
-import ServerSideRender from '@wordpress/server-side-render';
-import globalSettings from './../../../manifest.json';
-import block from './../manifest.json';
+import { LoadMoreEditor as LoadMoreEditorComponent } from '../../../components/load-more/components/load-more-editor';
 
-export const FeaturedPostsEditor = ({ attributes }) => {
+export const FeaturedPostsEditor = ({ attributes, setAttributes }) => {
 	return (
-		<ServerSideRender
-			block={`${globalSettings.namespace}/${block.blockName}`}
-			attributes={
-				{
-					...attributes,
-					wrapperUse: false,
-					serverSideRender: true,
-				}
-			}
+		<LoadMoreEditorComponent
+			{...attributes}
+			setAttributes={setAttributes}
 		/>
 	);
 };
