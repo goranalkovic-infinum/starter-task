@@ -5,7 +5,7 @@ Swiper.use([Navigation, Pagination]);
 export class CarouselSlider {
 	constructor(options) {
 		this.element = options.element;
-		this.blockClass = options.blockClass;
+		this.slideClass = options.slideClass;
 		this.nextElement = options.nextElement;
 		this.prevElement = options.prevElement;
 		this.paginationElement = options.paginationElement;
@@ -18,7 +18,7 @@ export class CarouselSlider {
 
 		new Swiper(item, {
 			loop: item.getAttribute('data-swiper-loop'),
-			slideClass: `${this.blockClass}__item`,
+			slideClass: this.slideClass,
 			slidesPerView: 2,
 			spaceBetween: 30,
 			keyboard: {

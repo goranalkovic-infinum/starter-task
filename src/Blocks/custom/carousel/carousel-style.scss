@@ -18,7 +18,13 @@ $block-carousel: (
 );
 
 .block-carousel {
-	&__item {
+	.swiper-wrapper {
+		cursor: grab;
+	}
+}
+
+.js-block-carousel {
+	&-item {
 		flex-shrink: 0;
 		width: 100%;
 		transition: 0.3s transform ease-in-out, 0.3s opacity ease-in-out;
@@ -27,21 +33,15 @@ $block-carousel: (
 		&:not(.swiper-slide-active) {
 			opacity: 0.3;
 		}
+
+		&-inner {
+			align-items: center;
+			display: flex;
+			width: 100%;
+			justify-content: center;
+		}
 	}
 
-	&__item-inner {
-		align-items: center;
-		display: flex;
-		width: 100%;
-		justify-content: center;
-	}
-
-	.swiper-wrapper {
-		cursor: grab;
-	}
-}
-
-.js-block-carousel {
 	&-control-container {
 		display: flex;
 		justify-content: center;

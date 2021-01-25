@@ -27,7 +27,10 @@ $carouselClass = Components::classnames([
 <div class="<?php echo esc_attr($carouselClass); ?>" data-swiper-loop="<?php echo esc_attr($isLoop); ?>" data-show-items="<?php echo esc_attr($showItems); ?>">
 
 	<div class="<?php echo esc_attr('swiper-wrapper'); ?>">
-		<?php echo wp_kses_post($innerBlockContent); ?>
+		<?php
+		$innerBlockContent = str_replace($blockClass . "__item", $blockJsClass . "-item", $innerBlockContent);
+		echo wp_kses_post($innerBlockContent);
+		?>
 	</div>
 
 	<div class="<?php echo esc_attr($blockJsClass); ?>-control-container">
