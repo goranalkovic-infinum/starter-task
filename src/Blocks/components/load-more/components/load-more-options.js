@@ -101,6 +101,8 @@ export const LoadMoreOptions = (attributes) => {
 						showButtonIsAnchor={false}
 						showButtonIsNewTab={false}
 						showButtonId={false}
+						showButtonUrl={false}
+						showButtonUse={false}
 						setAttributes={setAttributes}
 					/>
 				</Fragment>
