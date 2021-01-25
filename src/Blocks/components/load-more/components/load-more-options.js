@@ -1,6 +1,7 @@
 import React from 'react';
 import { __, sprintf } from '@wordpress/i18n';
 import { Fragment } from '@wordpress/element';
+import { URLInput } from '@wordpress/block-editor';
 import { ToggleControl, TextControl, RangeControl } from '@wordpress/components';
 import { ButtonOptions } from '../../../components/button/components/button-options';
 import { checkAttr } from '@eightshift/frontend-libs/scripts/helpers';
@@ -47,9 +48,12 @@ export const LoadMoreOptions = (attributes) => {
 
 			{loadMoreUse &&
 				<Fragment>
-					<TextControl
-						label={__("URL", 'unicorns')}
-						value={loadMoreUrl ?? ''}
+					<URLInput
+						label={__('URL', 'Unicorns')}
+						value={loadMoreUrl}
+						autoFocus={false}
+						disableSuggestions={true}
+						placeholder={__('Paste URL', 'Unicorns')}
 						onChange={(value) => setAttributes({ [`${componentNameCamelCase}Url`]: value })}
 					/>
 
