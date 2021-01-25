@@ -11,6 +11,9 @@ $block-carousel: (
 		hoverScale: 1.1,
 		disabledOpacity: 0.2,
 		margin: 0 23px,
+		padding: 0,
+		border: 0,
+		background: none,
 	)
 );
 
@@ -49,6 +52,9 @@ $block-carousel: (
 		height: map-get-deep($block-carousel, button, size);
 		width: map-get-deep($block-carousel, button, size);
 		transition: map-get-deep($block-carousel, button, transition);
+		padding: map-get-deep($block-carousel, button, padding);
+		border: map-get-deep($block-carousel, button, border);
+		background: map-get-deep($block-carousel, button, background);
 
 		&--next {
 			margin: map-get-deep($block-carousel, button, margin);

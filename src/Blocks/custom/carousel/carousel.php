@@ -31,12 +31,12 @@ $carouselClass = Components::classnames([
 	</div>
 
 	<div class="<?php echo esc_attr($blockClass); ?>__control-container">
-		<div class="<?php echo esc_attr($blockClass); ?>__icon <?php echo esc_attr($blockClass); ?>__icon--prev">
+		<button class="<?php echo esc_attr($blockClass); ?>__icon <?php echo esc_attr($blockClass); ?>__icon--prev">
 			<?php echo $manifest['resources']['arrowLeft']; ?>
-		</div>
-		<div class="<?php echo esc_attr($blockClass); ?>__icon <?php echo esc_attr($blockClass); ?>__icon--next">
+		</button>
+		<button class="<?php echo esc_attr($blockClass); ?>__icon <?php echo esc_attr($blockClass); ?>__icon--next">
 			<?php echo $manifest['resources']['arrowRight']; ?>
-		</div>
-		<div class="<?php echo esc_attr($blockClass); ?>__pagination"></div>
+		</button>
+		<span class="<?php echo esc_attr($blockClass); ?>__pagination"></span>
 	</div>
 </div>
