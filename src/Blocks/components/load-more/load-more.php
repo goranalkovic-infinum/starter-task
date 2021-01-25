@@ -17,7 +17,6 @@ $componentClass = $attributes['componentClass'] ?? $manifest['componentClass'];
 $componentJsClass = $attributes['componentJsClass'] ?? $manifest['componentJsClass'];
 $selectorClass = $attributes['selectorClass'] ?? $componentClass;
 
-$loadMoreButtonLabel = Components::checkAttr('loadMoreButtonLabel', $attributes, $manifest, $componentName);
 $loadMoreContainer = Components::checkAttr('loadMoreContainer', $attributes, $manifest, $componentName);
 $loadMoreUrl = Components::checkAttr('loadMoreUrl', $attributes, $manifest, $componentName);
 $loadMoreUsePagination = Components::checkAttr('loadMoreUsePagination', $attributes, $manifest, $componentName);
@@ -36,15 +35,14 @@ $loadMoreClass = Components::classnames([
 
 <div class="<?php echo \esc_attr($loadMoreClass); ?>" data-url="<?php echo \esc_url_raw($loadMoreUrl); ?>" data-paginated="<?php echo \esc_attr($loadMoreUsePagination); ?>" data-per-page="<?php echo \esc_attr($loadMoreItemsPerPage); ?>" data-per-page-param="<?php echo \esc_attr($loadMoreItemsPerPageParameterName); ?>" data-start-item="<?php echo \esc_attr($loadMoreStartItem); ?>" data-start-item-param="<?php echo \esc_attr($loadMoreStartItemParameterName); ?>">
 	<div class="<?php echo \esc_attr($componentJsClass) ?>--container"></div>
-	
+
 	<?php
 	$buttonHtml = Components::render('button', array_merge(
 		$attributes,
 		[
 			'blockClass' => $componentClass,
-			'buttonContent' => $loadMoreButtonLabel,
+			'selectorClass' => 'button',
 			'buttonAlign' => 'center',
-			'selectorClass' => 'button'
 		]
 	));
 
