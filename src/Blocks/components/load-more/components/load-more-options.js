@@ -2,6 +2,7 @@ import React from 'react';
 import { __, sprintf } from '@wordpress/i18n';
 import { Fragment } from '@wordpress/element';
 import { ToggleControl, TextControl, RangeControl } from '@wordpress/components';
+import { ButtonOptions } from '../../../components/button/components/button-options';
 import { checkAttr } from '@eightshift/frontend-libs/scripts/helpers';
 import manifest from '../manifest.json';
 
@@ -21,7 +22,6 @@ export const LoadMoreOptions = (attributes) => {
 		loadMoreStartItem = checkAttr('loadMoreStartItem', attributes, manifest, componentName),
 		loadMoreStartItemParameterName = checkAttr('loadMoreStartItemParameterName', attributes, manifest, componentName),
 	} = attributes;
-
 
 	if (!loadMoreShowControls) {
 		return null;
@@ -46,51 +46,59 @@ export const LoadMoreOptions = (attributes) => {
 			{loadMoreUse &&
 				<Fragment>
 
-				<TextControl
-					label="URL"
-					value={loadMoreUrl ?? ''}
-					onChange={(value) => setAttributes({ [`loadMoreUrl`]: value })}
+					<TextControl
+						label="URL"
+						value={loadMoreUrl ?? ''}
+						onChange={(value) => setAttributes({ [`loadMoreUrl`]: value })}
 					/>
 
-				{loadMoreUsePagination && <hr />}
+					{loadMoreUsePagination && <hr />}
 
-				<ToggleControl
-					label={__('Pagination', 'Unicorns')}
-					checked={loadMoreUsePagination}
-					onChange={(value) => setAttributes({ [`loadMoreUsePagination`]: value })}
-				/>
+					<ToggleControl
+						label={__('Pagination', 'Unicorns')}
+						checked={loadMoreUsePagination}
+						onChange={(value) => setAttributes({ [`loadMoreUsePagination`]: value })}
+					/>
 
 
-				{loadMoreUsePagination &&
-					<Fragment>
-						<RangeControl
-							label="Items per page"
-							value={loadMoreItemsPerPage ?? 0}
-							onChange={(value) => setAttributes({ [`loadMoreItemsPerPage`]: value })}
-							min={options.loadMoreItemsPerPage.min}
-							max={options.loadMoreItemsPerPage.max}
-							step={1}
-						/>
-						<TextControl
-							label="Items per page URL parameter"
-							value={loadMoreItemsPerPageParameterName ?? ''}
-							onChange={(value) => setAttributes({ [`loadMoreItemsPerPageParameterName`]: value })}
-						/>
-						<RangeControl
-							label="Starting item index"
-							value={loadMoreStartItem ?? 0}
-							onChange={(value) => setAttributes({ [`loadMoreStartItem`]: value })}
-							min={options.loadMoreStartItem.min}
-							max={options.loadMoreStartItem.max}
-							step={1}
-						/>
-						<TextControl
-							label="Starting item index URL parameter"
-							value={loadMoreStartItemParameterName ?? ''}
-							onChange={(value) => setAttributes({ [`loadMoreStartItemParameterName`]: value })}
+					{loadMoreUsePagination &&
+						<Fragment>
+							<RangeControl
+								label="Items per page"
+								value={loadMoreItemsPerPage ?? 0}
+								onChange={(value) => setAttributes({ [`loadMoreItemsPerPage`]: value })}
+								min={options.loadMoreItemsPerPage.min}
+								max={options.loadMoreItemsPerPage.max}
+								step={1}
+							/>
+							<TextControl
+								label="Items per page URL parameter"
+								value={loadMoreItemsPerPageParameterName ?? ''}
+								onChange={(value) => setAttributes({ [`loadMoreItemsPerPageParameterName`]: value })}
+							/>
+							<RangeControl
+								label="Starting item index"
+								value={loadMoreStartItem ?? 0}
+								onChange={(value) => setAttributes({ [`loadMoreStartItem`]: value })}
+								min={options.loadMoreStartItem.min}
+								max={options.loadMoreStartItem.max}
+								step={1}
+							/>
+							<TextControl
+								label="Starting item index URL parameter"
+								value={loadMoreStartItemParameterName ?? ''}
+								onChange={(value) => setAttributes({ [`loadMoreStartItemParameterName`]: value })}
 							/>
 						</Fragment>
 					}
+
+					<ButtonOptions
+						{...attributes}
+						showButtonIsAnchor={false}
+						showButtonIsNewTab={false}
+						showButtonId={false}
+						setAttributes={setAttributes}
+					/>
 				</Fragment>
 			}
 		</Fragment>
