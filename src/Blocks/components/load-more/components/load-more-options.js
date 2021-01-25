@@ -5,6 +5,7 @@ import { ToggleControl, TextControl, RangeControl } from '@wordpress/components'
 import { ButtonOptions } from '../../../components/button/components/button-options';
 import { checkAttr } from '@eightshift/frontend-libs/scripts/helpers';
 import manifest from '../manifest.json';
+import {camelCase} from 'lodash';
 
 const { options, title } = manifest;
 
@@ -42,12 +43,11 @@ export const LoadMoreOptions = (attributes) => {
 				onChange={(value) => setAttributes({ [`loadMoreUse`]: value })}
 			/>
 
-
 			{loadMoreUse &&
 				<Fragment>
 
 					<TextControl
-						label="URL"
+						label={__("URL", 'unicorns')}
 						value={loadMoreUrl ?? ''}
 						onChange={(value) => setAttributes({ [`loadMoreUrl`]: value })}
 					/>
@@ -60,11 +60,10 @@ export const LoadMoreOptions = (attributes) => {
 						onChange={(value) => setAttributes({ [`loadMoreUsePagination`]: value })}
 					/>
 
-
 					{loadMoreUsePagination &&
 						<Fragment>
 							<RangeControl
-								label="Items per page"
+								label={__("Items per page", 'unicorns')}
 								value={loadMoreItemsPerPage}
 								onChange={(value) => setAttributes({ [`loadMoreItemsPerPage`]: value })}
 								min={options.loadMoreItemsPerPage.min}
@@ -72,12 +71,12 @@ export const LoadMoreOptions = (attributes) => {
 								step={1}
 							/>
 							<TextControl
-								label="Items per page URL parameter"
+								label={__("Items per page URL parameter", 'unicorns')}
 								value={loadMoreItemsPerPageParameterName ?? ''}
 								onChange={(value) => setAttributes({ [`loadMoreItemsPerPageParameterName`]: value })}
 							/>
 							<RangeControl
-								label="Starting item index"
+								label={__("Starting item index", 'unicorns')}
 								value={loadMoreStartItem}
 								onChange={(value) => setAttributes({ [`loadMoreStartItem`]: value })}
 								min={options.loadMoreStartItem.min}
@@ -85,7 +84,7 @@ export const LoadMoreOptions = (attributes) => {
 								step={1}
 							/>
 							<TextControl
-								label="Starting item index URL parameter"
+								label={__("Starting item index URL parameter", 'unicorns')}
 								value={loadMoreStartItemParameterName}
 								onChange={(value) => setAttributes({ [`loadMoreStartItemParameterName`]: value })}
 							/>
