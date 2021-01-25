@@ -15,7 +15,7 @@ domReady( async () => {
 			const limit = parseInt(element.dataset.perPage);
 			let start = parseInt(element.dataset.startItem);
 
-			let container = document.querySelector(`${selector}--container`);
+			let container = document.querySelector(`${selector}-container`);
 
 			container.innerHTML = '';
 
