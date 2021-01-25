@@ -10,6 +10,11 @@ use UnicornsVendor\EightshiftLibs\Helpers\Components;
 
 $manifest = Components::getManifest(__DIR__);
 
+$loadMoreUse = Components::checkAttr('loadMoreUse', $attributes, $manifest, $componentName);
+if (!$loadMoreUse) {
+	return;
+}
+
 $componentName = $attributes['componentName'] ?? $manifest['componentName'];
 
 $blockClass = $attributes['blockClass'] ?? '';
