@@ -38,7 +38,7 @@ $loadMoreClass = Components::classnames([
 	<div class="<?php echo \esc_attr($componentJsClass) ?>--container"></div>
 	
 	<?php
-	echo \wp_kses_post(Components::render('button', array_merge(
+	$buttonHtml = Components::render('button', array_merge(
 		$attributes,
 		[
 			'blockClass' => $componentClass,
@@ -46,6 +46,10 @@ $loadMoreClass = Components::classnames([
 			'buttonAlign' => 'center',
 			'selectorClass' => 'button'
 		]
-	)));
+	));
+
+	$buttonHtml = str_replace("{$componentClass}__button", "{$componentJsClass}-button", $buttonHtml);
+
+	echo \wp_kses_post($buttonHtml);
 	?>
 </div>

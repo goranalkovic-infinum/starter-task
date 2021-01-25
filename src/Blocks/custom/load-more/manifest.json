@@ -1,0 +1,15 @@
+{
+	"blockName": "load-more",
+	"title": "Load More",
+	"description": "Load more block with custom settings.",
+	"category": "eightshift",
+	"icon": {
+		"src": "editor-removeformatting"
+	},
+	"keywords": [
+		"loadmore"
+	],
+	"components": {
+		"load-more": "load-more"
+	}
+}
