@@ -18,7 +18,6 @@ domReady(() => {
 					swipeHandler: `${selector} .swiper-wrapper`,
 					eventName,
 				});
-				console.log(carouselSlider);
 				carouselSlider.init();
 			});
 		});
