@@ -43,6 +43,7 @@ export const ButtonOptions = (attributes) => {
 		showButtonIsAnchor = true,
 		showButtonIsNewTab = true,
 		showButtonId = true,
+		showButtonUse = true,
 	} = attributes;
 
 	if (!buttonShowControls) {
@@ -58,11 +59,13 @@ export const ButtonOptions = (attributes) => {
 				</h3>
 			}
 
-			<ToggleControl
-				label={sprintf(__('Use %s', 'Unicorns'), label)}
-				checked={buttonUse}
-				onChange={(value) => setAttributes({ [`${componentName}Use`]: value })}
-			/>
+			{showButtonUse &&
+				<ToggleControl
+					label={sprintf(__('Use %s', 'Unicorns'), label)}
+					checked={buttonUse}
+					onChange={(value) => setAttributes({ [`${componentName}Use`]: value })}
+				/>
+			}
 
 			{buttonUse &&
 				<Fragment>
