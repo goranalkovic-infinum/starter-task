@@ -7,7 +7,6 @@
  */
 
 use UnicornsVendor\EightshiftLibs\Helpers\Components;
-use Unicorns\Manifest\Manifest;
 
 $manifest = Components::getManifest(__DIR__);
 
