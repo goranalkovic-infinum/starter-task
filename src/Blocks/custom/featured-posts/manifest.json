@@ -1,7 +1,7 @@
 {
 	"blockName": "featured-posts",
 	"title": "Featured Posts",
-	"description" : "Block for selecting and displaying featured posts",
+	"description" : "Block for displaying featured posts from a remote URL",
 	"category": "eightshift",
 	"icon": {
 		"src": "format-aside"
@@ -10,54 +10,13 @@
 		"featured",
 		"posts"
 	],
-	"example": {
-		"attributes": {
-			"query": {
-				"postType": "post"
-			},
-			"itemsPerLine": 4,
-			"showItems": 20,
-			"serverSideRender": true
-		}
-	},
 	"attributes": {
-		"query": {
-			"type": "object",
-			"default": {
-				"postType": "post",
-				"posts": []
-			},
-			"items": {
-				"type": "object"
-			}
-		},
-		"itemsPerLine": {
-			"type": "integer",
-			"default": 4
-		},
-		"showItems": {
-			"type": "integer"
-		},
-		"excludeCurrentPost": {
+		"loadOnStart": {
 			"type": "boolean",
-			"default": false
-		},
-		"serverSideRender": {
-			"type": "boolean",
-			"default": false
+			"default": "true"
 		}
 	},
-	"allowed": {
-		"postTypes": [
-			"post",
-			"page"
-		]
-	},
-	"options": {
-		"itemsPerLine": {
-			"min": 1,
-			"max": 4,
-			"step": 1
-		}
+	"components": {
+		"load-more": "load-more"
 	}
 }
