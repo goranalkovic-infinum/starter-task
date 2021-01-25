@@ -32,20 +32,10 @@ $carouselClass = Components::classnames([
 
 	<div class="<?php echo esc_attr($blockClass); ?>__control-container">
 		<div class="<?php echo esc_attr($blockClass); ?>__icon <?php echo esc_attr($blockClass); ?>__icon--prev">
-			<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
-				<g fill="none" fill-rule="evenodd">
-					<circle cx="24" cy="24" r="24" fill="#EEE" />
-					<path stroke="#979797" stroke-width="2" d="M29.527 14.158l-9.685 9.684 9.685 9.685" />
-				</g>
-			</svg>
+			<?php echo $manifest['resources']['arrowLeft']; ?>
 		</div>
 		<div class="<?php echo esc_attr($blockClass); ?>__icon <?php echo esc_attr($blockClass); ?>__icon--next">
-			<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
-				<g fill="none" fill-rule="evenodd">
-					<circle cx="24" cy="24" r="24" fill="#EEE" />
-					<path stroke="#979797" stroke-width="2" d="M19.842 14.158l9.685 9.684-9.685 9.685" />
-				</g>
-			</svg>
+			<?php echo $manifest['resources']['arrowRight']; ?>
 		</div>
 		<div class="<?php echo esc_attr($blockClass); ?>__pagination"></div>
 	</div>
