@@ -24,6 +24,8 @@ export const LoadMoreOptions = (attributes) => {
 		loadMoreStartItemParameterName = checkAttr('loadMoreStartItemParameterName', attributes, manifest, componentName),
 	} = attributes;
 
+	const componentNameCamelCase = camelCase(componentName);
+
 	if (!loadMoreShowControls) {
 		return null;
 	}
@@ -40,16 +42,15 @@ export const LoadMoreOptions = (attributes) => {
 			<ToggleControl
 				label={sprintf(__('Use %s', 'Unicorns'), label)}
 				checked={loadMoreUse}
-				onChange={(value) => setAttributes({ [`loadMoreUse`]: value })}
+				onChange={(value) => setAttributes({ [`${componentNameCamelCase}Use`]: value })}
 			/>
 
 			{loadMoreUse &&
 				<Fragment>
-
 					<TextControl
 						label={__("URL", 'unicorns')}
 						value={loadMoreUrl ?? ''}
-						onChange={(value) => setAttributes({ [`loadMoreUrl`]: value })}
+						onChange={(value) => setAttributes({ [`${componentNameCamelCase}Url`]: value })}
 					/>
 
 					{loadMoreUsePagination && <hr />}
@@ -57,7 +58,7 @@ export const LoadMoreOptions = (attributes) => {
 					<ToggleControl
 						label={__('Pagination', 'Unicorns')}
 						checked={loadMoreUsePagination}
-						onChange={(value) => setAttributes({ [`loadMoreUsePagination`]: value })}
+						onChange={(value) => setAttributes({ [`${componentNameCamelCase}UsePagination`]: value })}
 					/>
 
 					{loadMoreUsePagination &&
@@ -65,7 +66,7 @@ export const LoadMoreOptions = (attributes) => {
 							<RangeControl
 								label={__("Items per page", 'unicorns')}
 								value={loadMoreItemsPerPage}
-								onChange={(value) => setAttributes({ [`loadMoreItemsPerPage`]: value })}
+								onChange={(value) => setAttributes({ [`${componentNameCamelCase}ItemsPerPage`]: value })}
 								min={options.loadMoreItemsPerPage.min}
 								max={options.loadMoreItemsPerPage.max}
 								step={1}
@@ -73,12 +74,12 @@ export const LoadMoreOptions = (attributes) => {
 							<TextControl
 								label={__("Items per page URL parameter", 'unicorns')}
 								value={loadMoreItemsPerPageParameterName ?? ''}
-								onChange={(value) => setAttributes({ [`loadMoreItemsPerPageParameterName`]: value })}
+								onChange={(value) => setAttributes({ [`${componentNameCamelCase}ItemsPerPageParameterName`]: value })}
 							/>
 							<RangeControl
 								label={__("Starting item index", 'unicorns')}
 								value={loadMoreStartItem}
-								onChange={(value) => setAttributes({ [`loadMoreStartItem`]: value })}
+								onChange={(value) => setAttributes({ [`${componentNameCamelCase}StartItem`]: value })}
 								min={options.loadMoreStartItem.min}
 								max={options.loadMoreStartItem.max}
 								step={1}
@@ -86,7 +87,7 @@ export const LoadMoreOptions = (attributes) => {
 							<TextControl
 								label={__("Starting item index URL parameter", 'unicorns')}
 								value={loadMoreStartItemParameterName}
-								onChange={(value) => setAttributes({ [`loadMoreStartItemParameterName`]: value })}
+								onChange={(value) => setAttributes({ [`${componentNameCamelCase}StartItemParameterName`]: value })}
 							/>
 						</Fragment>
 					}
