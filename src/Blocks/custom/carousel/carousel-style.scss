@@ -39,15 +39,17 @@ $block-carousel: (
 	.swiper-wrapper {
 		cursor: grab;
 	}
+}
 
-	&__control-container {
+.js-block-carousel {
+	&-control-container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		padding: 25px 12px;
 	}
 
-	&__icon {
+	&-icon {
 		cursor: pointer;
 		height: map-get-deep($block-carousel, button, size);
 		width: map-get-deep($block-carousel, button, size);
@@ -56,7 +58,7 @@ $block-carousel: (
 		border: map-get-deep($block-carousel, button, border);
 		background: map-get-deep($block-carousel, button, background);
 
-		&--next {
+		&-next {
 			margin: map-get-deep($block-carousel, button, margin);
 		}
 
@@ -70,7 +72,7 @@ $block-carousel: (
 		}
 	}
 
-	&__pagination {
+	&-pagination {
 		@extend %paragraph-reset;
 		font-size: map-get-deep($block-carousel, pagination, fontSize);
 		font-weight: map-get-deep($block-carousel, pagination, fontWeight);

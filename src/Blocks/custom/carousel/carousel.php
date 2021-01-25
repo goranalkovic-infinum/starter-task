@@ -30,13 +30,13 @@ $carouselClass = Components::classnames([
 		<?php echo wp_kses_post($innerBlockContent); ?>
 	</div>
 
-	<div class="<?php echo esc_attr($blockClass); ?>__control-container">
-		<button class="<?php echo esc_attr($blockClass); ?>__icon <?php echo esc_attr($blockClass); ?>__icon--prev">
+	<div class="<?php echo esc_attr($blockJsClass); ?>-control-container">
+		<button class="<?php echo esc_attr($blockJsClass); ?>-icon <?php echo esc_attr($blockJsClass); ?>-icon-prev">
 			<?php echo $manifest['resources']['arrowLeft']; ?>
 		</button>
-		<button class="<?php echo esc_attr($blockClass); ?>__icon <?php echo esc_attr($blockClass); ?>__icon--next">
+		<button class="<?php echo esc_attr($blockJsClass); ?>-icon <?php echo esc_attr($blockJsClass); ?>-icon-next">
 			<?php echo $manifest['resources']['arrowRight']; ?>
 		</button>
-		<span class="<?php echo esc_attr($blockClass); ?>__pagination"></span>
+		<span class="<?php echo esc_attr($blockJsClass); ?>-pagination"></span>
 	</div>
 </div>
