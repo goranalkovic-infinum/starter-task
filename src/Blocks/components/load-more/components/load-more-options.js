@@ -68,7 +68,7 @@ export const LoadMoreOptions = (attributes) => {
 					{loadMoreUsePagination &&
 						<Fragment>
 							<RangeControl
-								label={__("Items per page", 'unicorns')}
+								label={__("Items per page", 'Unicorns')}
 								value={loadMoreItemsPerPage}
 								onChange={(value) => setAttributes({ [`${componentNameCamelCase}ItemsPerPage`]: value })}
 								min={options.loadMoreItemsPerPage.min}
@@ -76,12 +76,12 @@ export const LoadMoreOptions = (attributes) => {
 								step={1}
 							/>
 							<TextControl
-								label={__("Items per page URL parameter", 'unicorns')}
+								label={__("Items per page URL parameter", 'Unicorns')}
 								value={loadMoreItemsPerPageParameterName ?? ''}
 								onChange={(value) => setAttributes({ [`${componentNameCamelCase}ItemsPerPageParameterName`]: value })}
 							/>
 							<RangeControl
-								label={__("Starting item index", 'unicorns')}
+								label={__("Starting item index", 'Unicorns')}
 								value={loadMoreStartItem}
 								onChange={(value) => setAttributes({ [`${componentNameCamelCase}StartItem`]: value })}
 								min={options.loadMoreStartItem.min}
@@ -89,7 +89,7 @@ export const LoadMoreOptions = (attributes) => {
 								step={1}
 							/>
 							<TextControl
-								label={__("Starting item index URL parameter", 'unicorns')}
+								label={__("Starting item index URL parameter", 'Unicorns')}
 								value={loadMoreStartItemParameterName}
 								onChange={(value) => setAttributes({ [`${componentNameCamelCase}StartItemParameterName`]: value })}
 							/>
