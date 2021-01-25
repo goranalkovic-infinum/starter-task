@@ -10,7 +10,7 @@ use UnicornsVendor\EightshiftLibs\Helpers\Components;
 
 $manifest = Components::getManifest(__DIR__);
 
-$loadMoreUse = Components::checkAttr('loadMoreUse', $attributes, $manifest, $componentName);
+$loadMoreUse = Components::checkAttr('loadMoreUse', $attributes, $manifest, $manifest['componentName']);
 if (!$loadMoreUse) {
 	return;
 }
