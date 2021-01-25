@@ -23,10 +23,10 @@ export const CarouselEditor = ({ attributes }) => {
 			<InnerBlocks
 				allowedBlocks={allowedBlocks}
 			/>
-			<div className={`${blockClass}__control-container`}>
-				<div className={`${blockClass}__icon ${blockClass}__icon--prev`} dangerouslySetInnerHTML={{ __html: resources.arrowLeft }}></div>
-				<div className={`${blockClass}__icon ${blockClass}__icon--next`} dangerouslySetInnerHTML={{ __html: resources.arrowRight }}></div>
-				<div className={`${blockClass}__pagination`}></div>
+			<div className={`${blockJsClass}-control-container`}>
+				<div className={`${blockJsClass}-icon ${blockJsClass}-icon-prev`} dangerouslySetInnerHTML={{ __html: resources.arrowLeft }}></div>
+				<div className={`${blockJsClass}-icon ${blockJsClass}-icon-next`} dangerouslySetInnerHTML={{ __html: resources.arrowRight }}></div>
+				<div className={`${blockJsClass}-pagination`}></div>
 			</div>
 		</div>
 	);
