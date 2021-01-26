@@ -1,3 +1,9 @@
-// .copyright {
+$copyright : (
+	color: global-settings(colors, charcoal),
+	fontWeight: 600,
+);
 
-// }
+.copyright {
+	color: map-get-strict($copyright, color);
+	font-weight: map-get-strict($copyright, fontWeight);
+}

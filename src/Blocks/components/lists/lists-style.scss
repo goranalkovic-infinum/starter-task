@@ -1,8 +1,5 @@
 $lists: (
-	colors: (
-		primary: global-settings(colors, primary),
-		black: global-settings(colors, black),
-	),
+	colors: global-settings(colors),
 	link-color: map-get-strict($link, colors),
 	sizes: (
 		mobile: (
@@ -37,7 +34,7 @@ $lists: (
 %chip-style {
 	margin: 0;
 	border-radius: 22px;
-	background-color: $base-aluminum-color;
+	background-color: global-settings(colors, aluminum);
 	padding: 0 18px;
 	height: 30px;
 	display: flex;
