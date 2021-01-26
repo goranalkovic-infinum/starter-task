@@ -21,16 +21,14 @@ $block-carousel: (
 	.swiper-wrapper {
 		cursor: grab;
 	}
-}
 
-.js-block-carousel {
-	&-item {
+	&__item {
 		flex-shrink: 0;
 		width: 100%;
 		transition: 0.3s transform ease-in-out, 0.3s opacity ease-in-out;
 		display: flex;
 
-		&:not(.swiper-slide-active) {
+		&:not(.swiper-slide-active) &-inner {
 			opacity: 0.3;
 		}
 
@@ -42,14 +40,14 @@ $block-carousel: (
 		}
 	}
 
-	&-control-container {
+	&__control-container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		padding: 25px 12px;
 	}
 
-	&-icon {
+	&__icon {
 		cursor: pointer;
 		height: map-get-deep($block-carousel, button, size);
 		width: map-get-deep($block-carousel, button, size);
@@ -58,7 +56,7 @@ $block-carousel: (
 		border: map-get-deep($block-carousel, button, border);
 		background: map-get-deep($block-carousel, button, background);
 
-		&-next {
+		&--next {
 			margin: map-get-deep($block-carousel, button, margin);
 		}
 
@@ -72,7 +70,7 @@ $block-carousel: (
 		}
 	}
 
-	&-pagination {
+	&__pagination {
 		@extend %paragraph-reset;
 		font-size: map-get-deep($block-carousel, pagination, fontSize);
 		font-weight: map-get-deep($block-carousel, pagination, fontWeight);
