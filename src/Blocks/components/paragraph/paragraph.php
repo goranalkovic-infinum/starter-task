@@ -24,12 +24,14 @@ $paragraphContent = Components::checkAttr('paragraphContent', $attributes, $mani
 $paragraphColor = Components::checkAttr('paragraphColor', $attributes, $manifest, $componentName);
 $paragraphSize = Components::checkAttr('paragraphSize', $attributes, $manifest, $componentName);
 $paragraphAlign = Components::checkAttr('paragraphAlign', $attributes, $manifest, $componentName);
+$paragraphFontStyle = Components::checkAttr('paragraphFontStyle', $attributes, $manifest, $componentName);
 
 $paragraphClass = Components::classnames([
 	$componentClass,
 	Components::selector($paragraphColor, $componentClass, 'color', $paragraphColor),
 	Components::selector($paragraphSize, $componentClass, 'size', $paragraphSize),
 	Components::selector($paragraphAlign, $componentClass, 'align', $paragraphAlign),
+	Components::selector($paragraphFontStyle, $componentClass, 'font-style', $paragraphFontStyle),
 	Components::selector($blockClass, $blockClass, $selectorClass),
 ]);
 
