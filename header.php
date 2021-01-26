@@ -46,7 +46,6 @@ use Unicorns\Manifest\Manifest;
 						'logoHref' => \get_bloginfo('url'),
 					]
 				),
-				'layoutCenter' => [],
 				'layoutRight' =>
 				[Components::render(
 					'menu',
