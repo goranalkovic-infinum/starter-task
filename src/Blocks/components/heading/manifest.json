@@ -44,6 +44,10 @@
 	"options": {
 		"sizes": [
 			{
+				"label": "Small (22px)",
+				"value": "small"
+			},
+			{
 				"label": "Default (30px)",
 				"value": "default"
 			},
