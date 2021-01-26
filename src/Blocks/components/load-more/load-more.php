@@ -29,7 +29,7 @@ $loadMoreItemsPerPage = Components::checkAttr('loadMoreItemsPerPage', $attribute
 $loadMoreItemsPerPageParameterName = Components::checkAttr('loadMoreItemsPerPageParameterName', $attributes, $manifest, $componentName);
 $loadMoreStartItem = Components::checkAttr('loadMoreStartItem', $attributes, $manifest, $componentName);
 $loadMoreStartItemParameterName = Components::checkAttr('loadMoreStartItemParameterName', $attributes, $manifest, $componentName);
-$loadMoreInitialLoad = $attributes['loadMoreInitialLoad'] ?? 'false';
+$loadMoreInitialLoad = Components::checkAttr('loadMoreInitialLoad', $attributes, $manifest, $componentName) ? 'true' : 'false';
 
 $loadMoreClass = Components::classnames([
 	$componentClass,
