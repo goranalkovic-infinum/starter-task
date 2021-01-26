@@ -19,7 +19,7 @@ export class CarouselSlider {
 		new Swiper(item, {
 			loop: item.getAttribute('data-swiper-loop'),
 			slideClass: this.slideClass,
-			slidesPerView: 2,
+			slidesPerView: 1,
 			spaceBetween: 30,
 			keyboard: {
 				enabled: true,
@@ -45,19 +45,17 @@ export class CarouselSlider {
 					window.dispatchEvent(this.eventName);
 				},
 			},
-			// the object key represents minimum width where the breakpoint properties apply
+			breakpointsInverse: true,
+			// the object key represents maximum width where the breakpoint properties apply
 			breakpoints: {
-				1: {
-					slidesPerView: 1,
-				},
-				849: {
-					slidesPerView: 2,
+				2001: {
+					slidesPerView: 5,
 				},
 				1470: {
 					slidesPerView: 3,
 				},
-				2001: {
-					slidesPerView: 5,
+				849: {
+					slidesPerView: 2,
 				},
 			}
 		});
