@@ -30,8 +30,8 @@ $footer: (
 			margin-bottom: 0,
 		),
 	),
-	activeColor: $base-gray-color,
-	copyrightColor: $base-gray-color,
+	activeColor: global-settings(colors, aluminum),
+	copyrightColor: global-settings(colors, aluminum),
 	logoHeight: 39px,
 	menuFontWeight: 600,
 );
