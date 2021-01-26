@@ -30,8 +30,7 @@ $footer: (
 			margin-bottom: 0,
 		),
 	),
-	activeColor: global-settings(colors, aluminum),
-	copyrightColor: global-settings(colors, aluminum),
+	activeColor: global-settings(colors, charcoal),
 	logoHeight: 39px,
 	menuFontWeight: 600,
 );
@@ -74,11 +73,6 @@ $footer: (
 		&--right {
 			text-align: right;
 			justify-content: flex-end;
-
-			.copyright {
-				color: map-get-strict($footer, copyrightColor);
-				font-weight: 600;
-			}
 		}
 	}
 
