@@ -22,6 +22,9 @@ export const ListsEditor = (attributes) => {
 		listsColor = checkAttr('listsColor', attributes, manifest, componentName),
 		listsSize = checkAttr('listsSize', attributes, manifest, componentName),
 		listsAlign = checkAttr('listsAlign', attributes, manifest, componentName),
+		listsStyle = checkAttr('listsStyle', attributes, manifest, componentName),
+		listsHorizontal = checkAttr('listsHorizontal', attributes, manifest, componentName),
+		listsShowBullets = checkAttr('listsShowBullets', attributes, manifest, componentName),
 	} = attributes;
 
 	const listsClass = classnames([
@@ -29,8 +32,13 @@ export const ListsEditor = (attributes) => {
 		selector(listsColor, componentClass, 'color', listsColor),
 		selector(listsSize, componentClass, 'size', listsSize),
 		selector(listsAlign, componentClass, 'align', listsAlign),
+		selector(listsStyle, componentClass, 'style', listsStyle),
+		selector(listsHorizontal, componentClass, 'horizontal', listsHorizontal),
+		selector(true, componentClass, 'show-bullets', listsShowBullets ? 'true' : 'false'),
 		selector(blockClass, blockClass, selectorClass),
 	]);
+
+	console.log(listsClass);
 
 	return (
 		<Fragment>

@@ -20,9 +20,13 @@ export const ListsOptions = (attributes) => {
 
 		listsColor = checkAttr('listsColor', attributes, manifest, componentName),
 		listsSize = checkAttr('listsSize', attributes, manifest, componentName),
+		listsShowBullets = checkAttr('listsShowBullets', attributes, manifest, componentName),
+		listsHorizontal = checkAttr('listsHorizontal', attributes, manifest, componentName),
+		listsStyle = checkAttr('listsStyle', attributes, manifest, componentName),
 
 		showListsColor = true,
 		showListsSize = true,
+		showListsStyle = true,
 	} = attributes;
 
 	if (!listsShowControls) {
@@ -57,7 +61,8 @@ export const ListsOptions = (attributes) => {
 							value={listsColor}
 							onChange={(value) => setAttributes({ [`${componentName}Color`]: value })}
 						/>
-					}
+					}	
+		
 
 					{showListsSize &&
 						<SelectControl
@@ -67,6 +72,30 @@ export const ListsOptions = (attributes) => {
 							onChange={(value) => setAttributes({ [`${componentName}Size`]: value })}
 						/>
 					}
+
+					<hr />
+
+					{showListsStyle &&
+						<SelectControl
+							label={__('List style', 'Unicorns')}
+							value={listsStyle}
+							options={options.styles}
+							onChange={(value) => setAttributes({ [`${componentName}Style`]: value })}
+						/>
+					}
+
+					<ToggleControl
+						label={__('Show bullet points', 'Unicorns')}
+						checked={listsShowBullets}
+						onChange={(value) => setAttributes({ [`${componentName}ShowBullets`]: value })}
+					/>					
+					
+					<ToggleControl
+						label={__('Horizontal list', 'Unicorns')}
+						checked={listsHorizontal}
+						help={__('Best used with "Show bullet points" disabled', 'Unicorns')}
+						onChange={(value) => setAttributes({ [`${componentName}Horizontal`]: value })}
+					/>		
 				</Fragment>
 			}
 
