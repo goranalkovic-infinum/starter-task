@@ -1,18 +1,46 @@
 $footer: (
-	height: 50px,
 	site-padding: global-settings(gutters, default),
 	site-container: global-settings(containers, default),
 	colors: (
 		background: global-settings(colors, white),
 	),
+	flex-directions: (
+		mobile: (
+			flex-direction: column,
+		),
+		tablet: (
+			flex-direction: row,
+		),
+	),
+	logo-margin: (
+		mobile: (
+			margin-right: 0,
+			margin-bottom: 15px,
+		),
+		tablet: (
+			margin-right: 15px,
+			margin-bottom: 0,
+		),
+	),
+	column-margin: (
+		mobile: (
+			margin-bottom: 15px,
+		),
+		tablet: (
+			margin-bottom: 0,
+		),
+	),
+	activeColor: $base-gray-color,
+	copyrightColor: $base-gray-color,
+	logoHeight: 39px,
+	menuFontWeight: 600,
 );
 
 .footer {
 	$this: &;
-	padding: 0 map-get-strict($footer, site-padding);
+	padding: 40px map-get-strict($footer, site-padding);
 	top: 0;
 	background: map-get-deep($footer, colors, background);
-	height: map-get-strict($footer, height);
 	width: 100%;
 	position: relative;
 
@@ -24,12 +52,15 @@ $footer: (
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		@include responsive($footer, flex-directions);
 	}
 
 	&__column {
 		flex: 1 0 auto;
 		align-items: center;
 		display: flex;
+		@include responsive($footer, flex-directions);
+		@include responsive($footer, column-margin);
 
 		&--left {
 			justify-content: flex-start;
@@ -43,6 +74,36 @@ $footer: (
 		&--right {
 			text-align: right;
 			justify-content: flex-end;
+
+			.copyright {
+				color: map-get-strict($footer, copyrightColor);
+				font-weight: 600;
+			}
+		}
+	}
+
+	&__logo {
+		@include responsive($footer, logo-margin);
+
+		.logo {
+			width: auto;
+		}
+
+		img {
+			height: map-get-strict($footer, logoHeight);
+		}
+	}
+
+	&__menu {
+		a {
+			color: global-settings(colors, primary);
+			font-weight: map-get-strict($footer, menuFontWeight);
+		}
+
+		.menu-horizontal {
+			&__item--current-menu-item a {
+				color: map-get-strict($footer, activeColor);
+			}
 		}
 	}
 }
