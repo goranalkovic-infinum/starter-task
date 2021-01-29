@@ -44,6 +44,10 @@
 	"options": {
 		"sizes": [
 			{
+				"label": "Summary (22px)",
+				"value": "summary"
+			},
+			{
 				"label": "Default (30px)",
 				"value": "default"
 			},

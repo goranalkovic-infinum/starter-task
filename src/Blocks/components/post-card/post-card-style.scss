@@ -1,0 +1,53 @@
+$post-card: (
+	image-heights: (
+		mobile: (
+			height: 280px,
+		),
+		tablet: (
+			height: 240px,
+		),
+		desktop: (
+			height: 217px,
+		)
+	)
+);
+
+.post-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	&__image {
+		padding-bottom: 20px;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+
+	&__image-wrap {
+		@include responsive($post-card, image-heights);
+	}
+
+	&__date {
+		margin-bottom: 2px;
+	}
+
+	&__heading {
+		margin-bottom: 10px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__excerpt {
+		margin-bottom: 24px;
+		overflow: hidden;
+		max-height: 6.5em;
+		text-align: justify;
+		text-overflow: ellipsis;
+	}
+
+	&__lists {
+		margin-top: auto;
+	}
+}

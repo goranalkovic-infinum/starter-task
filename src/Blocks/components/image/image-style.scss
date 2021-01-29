@@ -3,6 +3,7 @@
 	width: auto;
 	height: auto;
 	display: block;
+	object-fit: contain;
 
 	&--bg {
 		@extend %bg-image;
@@ -14,6 +15,7 @@
 
 .image-wrap {
 	display: flex;
+	flex-direction: column;
 
 	&__align {
 		@include flex-horizontal-align-modifiers;

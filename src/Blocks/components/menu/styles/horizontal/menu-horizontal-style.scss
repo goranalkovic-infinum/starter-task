@@ -6,7 +6,23 @@ $menu-horizontal: (
 		),
 		hover: (
 			color: global-settings(colors, primary),
-		)
+		),
+	),
+	responsive-menu: (
+		mobile: (
+			flex-direction: column,
+		),
+		tablet: (
+			flex-direction: row,
+		),
+	),
+	responsive-menu-items: (
+		mobile: (
+			padding: 8px,
+		),
+		tablet: (
+			padding: 0 15px,
+		),
 	),
 );
 
@@ -16,6 +32,7 @@ $menu-horizontal: (
 	height: 100%;
 	display: flex;
 	align-items: center;
+	@include responsive($menu-horizontal, responsive-menu);
 
 	&__link {
 		text-decoration: none;
@@ -23,9 +40,29 @@ $menu-horizontal: (
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: map-get-strict($menu-horizontal, link-padding);
 		transition: 0.3s color ease-in-out;
+		font-weight: 600;
 
 		@include link($menu-horizontal, link-modifiers);
+		@include responsive($menu-horizontal, responsive-menu-items);
+	}
+
+	&__item--highlight &__link {
+		max-height: 50px;
+		border-radius: 90px;
+
+		padding: 14px 24px;
+		margin-left: 15px;
+
+		color: global-settings(colors, $base-white-color);
+		background-color: global-settings(colors, primary);
+
+		transition: 0.3s color ease-in-out, 0.3s background-color ease-in-out;
+
+		font-weight: bold;
+
+		&:hover {
+			background-color: $base-black-color;
+		}
 	}
 }

@@ -1,11 +1,26 @@
 $header: (
-	height: $base-header-height,
 	site-padding: global-settings(gutters, default),
 	site-container: global-settings(containers, default),
 	colors: (
 		background: global-settings(colors, white),
 	),
 	z-index: map-get-strict($zindex, header),
+	height: (
+		mobile: (
+			height: 40px,
+		),
+		tablet: (
+			height: $base-header-height,
+		)
+	),
+	logo-size: (
+		mobile: (
+			width: 45px,
+		),
+		tablet: (
+			width: 101px,
+		)
+	),
 );
 
 .header {
@@ -13,7 +28,7 @@ $header: (
 	padding: 0 map-get-strict($header, site-padding);
 	top: 0;
 	background: map-get-deep($header, colors, background);
-	height: map-get-strict($header, height);
+	@include responsive($header, height);
 	width: 100%;
 	position: relative;
 	z-index: map-get-strict($header, z-index);
@@ -58,7 +73,8 @@ $header: (
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 101px;
+		line-height: 0;
+		@include responsive($header, logo-size);
 
 		@include media(desktop up) {
 			justify-content: flex-start;

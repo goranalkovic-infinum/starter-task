@@ -1,0 +1,65 @@
+@import '~swiper/swiper.scss';
+
+.block-carousel {
+	&__item {
+		flex-shrink: 0;
+		width: 100%;
+		transition: 0.3s transform ease-in-out, 0.3s opacity ease-in-out;
+		display: flex;
+
+		&:not(.swiper-slide-active) {
+			opacity: 0.3;
+		}
+	}
+
+	&__item-inner {
+		align-items: center;
+		display: flex;
+		width: 100%;
+		justify-content: center;
+	}
+
+	.block-image__image {
+		margin: 0 auto;
+		object-fit: contain;
+	}
+
+	.swiper-wrapper {
+		cursor: grab;
+	}
+
+	.control-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 25px 12px;
+	}
+
+	.js-block-carousel-prev-arrow,
+	.js-block-carousel-next-arrow {
+		cursor: pointer;
+		height: 48px;
+		width: 48px;
+		transition: 0.5s all ease-out;
+
+		:hover {
+			transform: scale(1.1);
+		}
+	}
+
+	.swiper-button-disabled {
+		opacity: 0.25;
+		pointer-events: none;
+	}
+
+	.js-block-carousel-next-arrow {
+		margin: 0 23px;
+	}
+
+	.js-block-carousel-pagination {
+		@extend %paragraph-reset;
+		font-size: 18px;
+		font-weight: bold;
+		color: $base-text-color;
+	}
+}

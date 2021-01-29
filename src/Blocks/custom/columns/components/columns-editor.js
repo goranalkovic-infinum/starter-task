@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { InnerBlocks } from '@wordpress/block-editor';
-import { responsiveSelectors, checkAttr } from '@eightshift/frontend-libs/scripts/helpers';
+import { responsiveSelectors, checkAttr, selector } from '@eightshift/frontend-libs/scripts/helpers';
 import manifest from './../manifest.json';
 import globalManifest from './../../../manifest.json';
 
@@ -9,6 +9,7 @@ export const ColumnsEditor = ({ attributes }) => {
 	const {
 		allowedBlocks,
 		blockClass,
+		verticalAlign = checkAttr('verticalAlign', attributes, manifest),
 	} = attributes;
 
 	const gutter = {
@@ -28,6 +29,7 @@ export const ColumnsEditor = ({ attributes }) => {
 	const componentClass = classnames([
 		blockClass,
 		globalManifest.globalVariables.customBlocksName,
+		selector(verticalAlign, blockClass, 'verticalAlign', verticalAlign),
 		responsiveSelectors(gutter, 'gutter', blockClass),
 		responsiveSelectors(verticalSpacing, 'verticalSpacing', blockClass),
 	]);

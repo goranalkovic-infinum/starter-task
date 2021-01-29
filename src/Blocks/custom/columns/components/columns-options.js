@@ -1,10 +1,11 @@
 import React from 'react';
 import { __ } from '@wordpress/i18n';
 import { Fragment } from '@wordpress/element';
-import { PanelBody, Icon, RangeControl } from '@wordpress/components';
+import { PanelBody, Icon, RangeControl, SelectControl } from '@wordpress/components';
 import { Responsive, HelpModal } from '@eightshift/frontend-libs/scripts/components';
 import { icons, ucfirst } from '@eightshift/frontend-libs/scripts/editor';
 import manifest from './../manifest.json';
+import { checkAttr } from '@eightshift/frontend-libs/scripts/helpers';
 
 const { attributes: reset, options } = manifest;
 
@@ -23,6 +24,8 @@ export const ColumnsOptions = ({ attributes, setAttributes }) => {
 		attributes.verticalSpacingMobile,
 	];
 
+	const verticalAlign = checkAttr('verticalAlign', attributes, manifest);
+
 	return (
 		<PanelBody title={__('Columns Details', 'Unicorns')}>
 
@@ -33,6 +36,13 @@ export const ColumnsOptions = ({ attributes, setAttributes }) => {
 			/>
 
 			<br /><br />
+
+			<SelectControl
+				label={__('Content vertical align', 'Unicorns')}
+				value={verticalAlign}
+				options={options.verticalAlignments}
+				onChange={(value) => setAttributes({ ['verticalAlign']: value })}
+			/>
 
 			<Responsive
 				label={

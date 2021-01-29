@@ -13,13 +13,11 @@ export const CardToolbar = (attributes) => {
 	return (
 		<Fragment>
 
-			<p style={{margin: "24px 8px", padding: 0, fontSize: "80%"}}>Image</p>
 			<ImageToolbar
 				{...attributes}
 				setAttributes={setAttributes}
 			/>
 
-			<p style={{margin: "24px 8px", padding: 0, fontSize: "80%"}}>Intro</p>
 			<HeadingToolbar
 				{...attributes}
 				componentName={'intro'}
@@ -28,19 +26,16 @@ export const CardToolbar = (attributes) => {
 				setAttributes={setAttributes}
 			/>
 
-			<p style={{margin: "24px 8px", padding: 0, fontSize: "80%"}}>Heading</p>
 			<HeadingToolbar
 				{...attributes}
 				setAttributes={setAttributes}
 			/>
 
-			<p style={{margin: "24px 8px", padding: 0, fontSize: "80%"}}>Paragraph</p>
 			<ParagraphToolbar
 				{...attributes}
 				setAttributes={setAttributes}
 			/>
 
-			<p style={{margin: "24px 8px", padding: 0, fontSize: "80%"}}>Button</p>
 			<ButtonToolbar
 				{...attributes}
 				setAttributes={setAttributes}

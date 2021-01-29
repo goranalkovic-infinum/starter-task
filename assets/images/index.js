@@ -5,3 +5,5 @@
  */
 
 import './logo.svg';
+import './arrow-left.svg';
+import './arrow-right.svg';

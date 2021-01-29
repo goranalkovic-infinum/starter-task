@@ -26,9 +26,12 @@ $verticalSpacing = [
 	'mobile' => Components::checkAttr('verticalSpacingMobile', $attributes, $manifest),
 ];
 
+	$verticalAlign = Components::checkAttr('verticalAlign', $attributes, $manifest);
+
 $componentClass = Components::classnames([
 	$blockClass,
 	Components::responsiveSelectors($gutter, 'gutter', $blockClass),
+	Components::selector($verticalAlign, $blockClass, 'verticalAlign', $verticalAlign),
 	Components::responsiveSelectors($verticalSpacing, 'verticalSpacing', $blockClass),
 ]);
 ?>

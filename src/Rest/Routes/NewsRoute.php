@@ -69,6 +69,7 @@ class NewsRoute extends AbstractRoute implements CallableRouteInterface
 	 * Callback method for NewsRoute.
 	 *
 	 * @param \WP_REST_Request $data Data got from endpoint url.
+   *
 	 * @return \WP_REST_Response|mixed If response generated an error, WP_Error, if response
 	 *                                is already an instance, WP_HTTP_Response, otherwise
 	 *                                returns a new WP_REST_Response instance.
