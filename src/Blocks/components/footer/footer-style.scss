@@ -1,5 +1,4 @@
 $footer: (
-	height: auto,
 	site-padding: global-settings(gutters, default),
 	site-container: global-settings(containers, default),
 	colors: (
@@ -31,6 +30,9 @@ $footer: (
 			margin-bottom: 0,
 		),
 	),
+	activeColor: global-settings(colors, charcoal),
+	logoHeight: 39px,
+	menuFontWeight: 600,
 );
 
 .footer {
@@ -38,7 +40,6 @@ $footer: (
 	padding: 40px map-get-strict($footer, site-padding);
 	top: 0;
 	background: map-get-deep($footer, colors, background);
-	height: map-get-strict($footer, height);
 	width: 100%;
 	position: relative;
 
@@ -100,6 +101,31 @@ $footer: (
 
 		.menu-horizontal__item--current-menu-item a {
 			color: $base-gray-color;
+		}
+	}
+
+	&__logo {
+		@include responsive($footer, logo-margin);
+
+		.logo {
+			width: auto;
+		}
+
+		img {
+			height: map-get-strict($footer, logoHeight);
+		}
+	}
+
+	&__menu {
+		a {
+			color: global-settings(colors, primary);
+			font-weight: map-get-strict($footer, menuFontWeight);
+		}
+
+		.menu-horizontal {
+			&__item--current-menu-item a {
+				color: map-get-strict($footer, activeColor);
+			}
 		}
 	}
 }

@@ -1,8 +1,5 @@
 $lists: (
-	colors: (
-		primary: global-settings(colors, primary),
-		black: global-settings(colors, black),
-	),
+	colors: global-settings(colors),
 	link-color: map-get-strict($link, colors),
 	sizes: (
 		mobile: (
@@ -17,7 +14,7 @@ $lists: (
 			tiny: (
 				font-size: 12px,
 				font-weight: 600,
-			)
+			),
 		),
 		large: (
 			default: (
@@ -29,19 +26,26 @@ $lists: (
 			tiny: (
 				font-size: 14px,
 				font-weight: 600,
-			)
+			),
 		),
 	),
 );
+
+%chip-style {
+	margin: 0;
+	border-radius: 22px;
+	background-color: global-settings(colors, aluminum);
+	padding: 0 18px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
 .lists {
 	margin: 0;
 	padding: 0;
 	color: map-get-deep($lists, colors, primary);
-
-	li {
-		margin-left: 22px;
-	}
 
 	&__color {
 		@include modifiers-deep($lists, colors, color);
@@ -56,28 +60,26 @@ $lists: (
 		@include text-align-modifiers;
 	}
 
-	&__showBullets--0, &__showBullets--false {
+	&__show-bullets--false {
 		list-style-type: none;
-		margin: 0;
 		padding: 0;
 	}
-	
-	&__horizontal--1, &__horizontal--true {
+
+	&__horizontal--true {
 		display: flex;
 
 		li:not(:last-child) {
 			margin-right: 10px;
 		}
-	}	
-	
-	&__special--1 li, &__special--true li {
-		margin: 0;
-		border-radius: 22px;
-		background-color: $base-light-gray-color;
-		padding: 0 18px;
-		height: 30px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+	}
+
+	&__style {
+		&--default li {
+			margin-left: 22px;
+		}
+
+		&--chip li {
+			@extend %chip-style;
+		}
 	}
 }

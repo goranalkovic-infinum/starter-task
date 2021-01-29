@@ -24,6 +24,22 @@ $menu-horizontal: (
 			padding: 0 15px,
 		),
 	),
+	responsive-menu: (
+		mobile: (
+			flex-direction: column,
+		),
+		tablet: (
+			flex-direction: row,
+		),
+	),
+	responsive-menu-items: (
+		mobile: (
+			padding: 8px,
+		),
+		tablet: (
+			padding: 0,
+		),
+	),
 );
 
 .menu-horizontal {
@@ -45,24 +61,5 @@ $menu-horizontal: (
 
 		@include link($menu-horizontal, link-modifiers);
 		@include responsive($menu-horizontal, responsive-menu-items);
-	}
-
-	&__item--highlight &__link {
-		max-height: 50px;
-		border-radius: 90px;
-
-		padding: 14px 24px;
-		margin-left: 15px;
-
-		color: global-settings(colors, $base-white-color);
-		background-color: global-settings(colors, primary);
-
-		transition: 0.3s color ease-in-out, 0.3s background-color ease-in-out;
-
-		font-weight: bold;
-
-		&:hover {
-			background-color: $base-black-color;
-		}
 	}
 }

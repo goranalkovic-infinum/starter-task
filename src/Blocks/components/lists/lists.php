@@ -25,18 +25,18 @@ $listsOrdered = Components::checkAttr('listsOrdered', $attributes, $manifest, $c
 $listsColor = Components::checkAttr('listsColor', $attributes, $manifest, $componentName);
 $listsSize = Components::checkAttr('listsSize', $attributes, $manifest, $componentName);
 $listsAlign = Components::checkAttr('listsAlign', $attributes, $manifest, $componentName);
-$listsShowBullets = Components::checkAttr('listsShowBullets', $attributes, $manifest, $componentName);
-$listsHorizontal = Components::checkAttr('listsHorizontal', $attributes, $manifest, $componentName);
-$listsSpecial = Components::checkAttr('listsSpecial', $attributes, $manifest, $componentName);
+$listsShowBullets = Components::checkAttr('listsShowBullets', $attributes, $manifest, $componentName) ? 'true' : 'false';
+$listsHorizontal = Components::checkAttr('listsHorizontal', $attributes, $manifest, $componentName) ? 'true' : 'false';
+$listsStyle = Components::checkAttr('listsStyle', $attributes, $manifest, $componentName);
 
 $listsClass = Components::classnames([
 	$componentClass,
 	Components::selector($listsColor, $componentClass, 'color', $listsColor),
 	Components::selector($listsSize, $componentClass, 'size', $listsSize),
 	Components::selector($listsAlign, $componentClass, 'align', $listsAlign),
-	Components::selector($listsShowBullets, $componentClass, 'showBullets', $listsShowBullets),
+	Components::selector($listsShowBullets, $componentClass, 'show-bullets', $listsShowBullets),
 	Components::selector($listsHorizontal, $componentClass, 'horizontal', $listsHorizontal),
-	Components::selector($listsSpecial, $componentClass, 'special', $listsSpecial),
+	Components::selector($listsStyle, $componentClass, 'style', $listsStyle),
 	Components::selector($blockClass, $blockClass, $selectorClass),
 ]);
 
